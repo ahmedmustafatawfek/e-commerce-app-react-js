@@ -1,0 +1,106 @@
+.home {
+  /* margin-top: 20rem; */
+}
+.headImg {
+  position: relative;
+  z-index: -1;
+}
+.hero{
+  height: 100vh;
+  background-image: url('../../images/PasteImage.png');
+  background-position: center;
+  background-size: cover;
+  margin-block-end: 4rem;
+
+}
+.headSection {
+  position: relative;
+  width: 45%;
+  top: 30%;
+  left: 8%;
+  z-index: 3;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.p {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.header {
+  font-size: 3rem;
+  width: 90%;
+  font-weight: 900;
+  padding-block-end: 1rem;
+}
+
+.subHeader {
+  font-size: 1.2rem;
+  width: 75%;
+  padding-block-end: 1rem;
+}
+
+.btn {
+  width: 25%;
+  background-color: black;
+  color: white;
+  border: unset;
+  border-radius: 1rem;
+  padding-block: 0.5rem;
+  padding-inline: 0.8rem;
+  transition: all 0.5s ease-in-out;
+}
+.btn:hover {
+  color: black;
+  background-color: white;
+}
+.cards{
+  margin-block-end: 7rem;
+}
+.card {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.Img {
+  position: relative;
+}
+
+.contentCoat {
+  position: absolute;
+  top: 3%;
+  left: 5%;
+}
+
+.contentCoat h5,
+.content h5{
+  font-size: 2.2rem;
+}
+
+.content {
+  position: absolute;
+  bottom: 3%;
+  left: 5%;
+}
+
+.bags {
+  margin-block-end: 1.7rem;
+}
+
+button.buton{
+  padding: 0;
+  border: unset;
+  background-color: transparent;
+  border-bottom: .1rem solid black;
+}

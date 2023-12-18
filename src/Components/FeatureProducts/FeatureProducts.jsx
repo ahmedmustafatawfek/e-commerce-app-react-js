@@ -4,8 +4,8 @@ import axios from "axios";
 import { LineWave } from "react-loader-spinner";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import { Button } from "bootstrap";
 
+// STARTING MAIN FUNCTION
 export default function FeatureProducts() {
   // SHOW LIMITED ITEMS
   const [limit, setLimit] = useState(6);
@@ -42,21 +42,12 @@ export default function FeatureProducts() {
       </div>
     ));
   }
-  // let [products, setProducts] = useState([]);
-  // let [isLoading, setIsLoading] = useState(true);
 
-  // async function getProduct() {
-  //   let { data } = await axios.get(
-  //     "https://ecommerce.routemisr.com/api/v1/products"
-  //   );
-  //   console.log(data.data);
-  //   setProducts(data.data);
-  //   setIsLoading(false);
-  // }
-
-  // useEffect(() => {
-  //   getProduct();
-  // }, []);
+  // SHOW MORE ITEMS FUNCTION
+  function showMore() {
+    setLimit(limit + 6);
+    displayProducts();
+  }
 
   return (
     <>
@@ -75,16 +66,38 @@ export default function FeatureProducts() {
           lastLineColor=""
         />
       ) : (
-        <div className={`row ${styles.rows}`}>
-          <> {displayProducts()}</>
+        <>
+          {/* LOADING THEN DISPLAY PRODUCTS */}
+          <div className={`row ${styles.rows}`}>
+            <> {displayProducts()}</>
 
-          <div className={`my-5 pb-4 position-relative`}>
-            <button className={`btn btn-black ${styles.btnMore}`}>
-              Show more
-            </button>
+            <div className={`my-5 pb-4 position-relative`}>
+              <button
+                className={`btn btn-black ${styles.btnMore}`}
+                onClick={showMore}
+              >
+                Show more
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );
 }
+
+// let [products, setProducts] = useState([]);
+// let [isLoading, setIsLoading] = useState(true);
+
+// async function getProduct() {
+//   let { data } = await axios.get(
+//     "https://ecommerce.routemisr.com/api/v1/products"
+//   );
+//   console.log(data.data);
+//   setProducts(data.data);
+//   setIsLoading(false);
+// }
+
+// useEffect(() => {
+//   getProduct();
+// }, []);

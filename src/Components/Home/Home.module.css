@@ -104,3 +104,36 @@ button.buton{
   background-color: transparent;
   border-bottom: .1rem solid black;
 }
+
+
+.banner {
+  background-color: rgb(227, 227, 227);
+  border-radius: 0.5rem;
+}
+
+.banner h3 {
+  color: black;
+}
+
+.banner p {
+  color: rgb(74, 74, 74);
+  position: relative;
+}
+
+.link {
+  text-decoration: unset;
+  color: black;
+  position: relative;
+  bottom: -10%;
+  cursor: pointer;
+}
+
+.link::after {
+  content: "";
+  width: 4.4rem;
+  height: 2rem;
+  border-bottom: solid black 0.1rem;
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+}

@@ -159,17 +159,17 @@ button.buton {
   background-color: transparent;
   color: black;
 }
-.email .submit{
+.email .submit {
   cursor: pointer;
   position: absolute;
   right: 6.5rem;
   bottom: 0rem;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   margin: 0;
   padding: 0;
 }
 
-.email .submit:hover{
+.email .submit:hover {
   transform: scale(1.1);
 }
 
@@ -179,5 +179,37 @@ button.buton {
   border-bottom: solid black 0.1rem;
   position: absolute;
   bottom: -0.5rem;
-  right:6rem;
+  right: 6rem;
+}
+
+.insta {
+  color: black;
+}
+.insta h5,
+p {
+  font-size: 0.8rem;
+}
+.insta p {
+  color: rgb(74, 74, 74);
+}
+
+.insta img {
+  border-radius: 1rem;
+  margin-block: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.insta img:hover {
+  transform: scale(1.1);
+}
+.support {
+  padding-inline-start: 3.5rem;
+}
+
+.support h5 {
+  font-size: 0.9rem;
+}
+.support p {
+  font-size: 0.75rem;
+  color: rgb(152, 152, 152);
 }

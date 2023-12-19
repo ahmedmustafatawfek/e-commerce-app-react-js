@@ -11,7 +11,10 @@ import hush from "../../images/Pieces/hush.png";
 import marc from "../../images/Pieces/marc.png";
 import supreme from "../../images/Pieces/supreme.png";
 import union from "../../images/Pieces/Union.png";
-import mail from "../../images/mail.png";
+import img1 from "../../images/instagram/img1.png";
+import img2 from "../../images/instagram/img2.png";
+import img3 from "../../images/instagram/img3.png";
+import img4 from "../../images/instagram/img4.png";
 
 export default function Home() {
   return (
@@ -138,9 +141,88 @@ export default function Home() {
             <form className={`${styles.email}`}>
               <i class="fa-regular fa-envelope fa-xl"></i>
               <input type="email" placeholder="Email address" />
-              <p itemType="submit" className={`fs-6 ${styles.submit}`}>Signup</p>
+              <p itemType="submit" className={`fs-6 ${styles.submit}`}>
+                Signup
+              </p>
             </form>
           </div>
+
+          {/* ON INSTAGRAM SECTION */}
+          <div id="instagram" className={`py-5 text-center ${styles.insta}`}>
+            <h5>CHECK US OUT</h5>
+            <h3 className="h2 pb-3">On Instagram</h3>
+            <p className={`w-50 m-auto`}>
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui
+              blanditiis praesentium voluptatum deleniti.
+            </p>
+            <div className="row">
+              <div className="col-md-3 ">
+                <img src={img1} alt="" className="w-100" />
+              </div>
+              <div className="col-md-3 ">
+                <img src={img2} alt="" className="w-100" />
+              </div>
+              <div className="col-md-3 ">
+                <img src={img3} alt="" className="w-100" />
+              </div>
+              <div className="col-md-3 ">
+                <img src={img4} alt="" className="w-100" />
+              </div>
+            </div>
+          </div>
+
+          {/* SHIPPING AND SUPPORT SECTION */}
+          <div className={`py-2 row ${styles.support}`}>
+            <div className="col-md-3 ">
+              <div className="row">
+                <div className="col-md-2">
+                  <i class="fa-solid fa-truck-fast fa-l"></i>
+                </div>
+                <div className="col-md-10">
+                  <h5>Free Shipping</h5>
+                  <p>Orders above $200</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-3">
+              <div className="row">
+                <div className="col-md-2">
+                  <i class="fa-solid fa-money-check-dollar"></i>
+                </div>
+                <div className="col-md-10">
+                  <h5>Money-back</h5>
+                  <p>30 day Guarantee</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-3">
+              <div className="row">
+                <div className="col-md-2">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div className="col-md-10">
+                  <h5>Premium Support</h5>
+                  <p>Phone and email support</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-3">
+              <div className="row">
+                <div className="col-md-2">
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <div className="col-md-10">
+                  <h5>Secure Payments</h5>
+                  <p>Secured by Stripe</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
         </div>
       </div>
     </>

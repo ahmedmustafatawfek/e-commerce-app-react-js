@@ -1,17 +1,17 @@
-.home {
-  /* margin-top: 20rem; */
+* {
+  box-sizing: border-box;
 }
+
 .headImg {
   position: relative;
   z-index: -1;
 }
-.hero{
+.hero {
   height: 100vh;
-  background-image: url('../../images/PasteImage.png');
+  background-image: url("../../images/PasteImage.png");
   background-position: center;
   background-size: cover;
   margin-block-end: 4rem;
-
 }
 .headSection {
   position: relative;
@@ -59,14 +59,13 @@
   color: black;
   background-color: white;
 }
-.cards{
+.cards {
   margin-block-end: 7rem;
 }
 .card {
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
 }
 
 .card:hover {
@@ -84,7 +83,7 @@
 }
 
 .contentCoat h5,
-.content h5{
+.content h5 {
   font-size: 2.2rem;
 }
 
@@ -98,19 +97,21 @@
   margin-block-end: 1.7rem;
 }
 
-button.buton{
+button.buton {
   padding: 0;
   border: unset;
   background-color: transparent;
-  border-bottom: .1rem solid black;
+  border-bottom: 0.1rem solid black;
 }
 
-
-.banner {
+.banner,
+.joinus {
   background-color: rgb(227, 227, 227);
   border-radius: 0.5rem;
 }
-
+.banner {
+  margin-inline: 0;
+}
 .banner h3 {
   color: black;
 }
@@ -136,4 +137,47 @@ button.buton{
   position: absolute;
   bottom: -0.5rem;
   left: 0;
+}
+
+.joinus p {
+  font-size: 0.8rem;
+  padding-block-end: 1rem;
+}
+
+.email {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 80%;
+}
+
+.email input {
+  border: unset;
+  padding-inline: 1rem;
+  background-color: transparent;
+  color: black;
+}
+.email .submit{
+  cursor: pointer;
+  position: absolute;
+  right: 6.5rem;
+  bottom: 0rem;
+  transition: all .3s ease-in-out;
+  margin: 0;
+  padding: 0;
+}
+
+.email .submit:hover{
+  transform: scale(1.1);
+}
+
+.email::after {
+  content: "";
+  width: 30rem;
+  border-bottom: solid black 0.1rem;
+  position: absolute;
+  bottom: -0.5rem;
+  right:6rem;
 }

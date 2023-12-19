@@ -11,6 +11,7 @@ import hush from "../../images/Pieces/hush.png";
 import marc from "../../images/Pieces/marc.png";
 import supreme from "../../images/Pieces/supreme.png";
 import union from "../../images/Pieces/Union.png";
+import mail from "../../images/mail.png";
 
 export default function Home() {
   return (
@@ -90,7 +91,7 @@ export default function Home() {
           <FeatureProducts />
 
           {/* BANNER FOR BRANDS */}
-          <div className={`row ${styles.banner} my-5`}>
+          <div className={`row mx-0 ${styles.banner} my-5`}>
             <div className={`col-md-6 p-5`}>
               <h3 className="py-3 ">Loved Brands</h3>
               <p>
@@ -131,8 +132,14 @@ export default function Home() {
           </div>
 
           {/* JOIN OUR NEWSLETTER */}
-          <div className={`text-center`}>
-            
+          <div className={`text-center py-5 my-4 ${styles.joinus}`}>
+            <h3 className="h2 pb-3">Join Our Newsletter</h3>
+            <p>Big discounts and right to your inbox.</p>
+            <form className={`${styles.email}`}>
+              <i class="fa-regular fa-envelope fa-xl"></i>
+              <input type="email" placeholder="Email address" />
+              <p itemType="submit" className={`fs-6 ${styles.submit}`}>Signup</p>
+            </form>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Products.module.css";
-import FeatureProducts from "../FeatureProducts/FeatureProducts";
 import AllProducts from "./AllProducts";
 
 export default function Products() {
@@ -41,7 +40,7 @@ export default function Products() {
           {/* right side */}
           <div className={`${styles.rightside}`}></div>
         </div>
-        
+
         <AllProducts />
       </div>
     </>

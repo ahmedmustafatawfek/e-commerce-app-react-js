@@ -32,6 +32,15 @@ export default function FeatureProducts() {
               className={`${styles.cardImage} ${styles.productImg}`}
               alt=""
             />
+            <h5>
+            <i className={`fa fa-star ${styles.star}`}></i>
+                    <i className={`fa fa-star ${styles.star}`}></i>
+                    <i className={`fa fa-star ${styles.star}`}></i>
+                    <i className={`fa fa-star ${styles.star}`}></i>
+                    <i
+                      class={`fa-solid fa-star-half-stroke me-2 ${styles.star}`}
+                    ></i>
+            </h5>
 
             <h3 className={`${styles.title}`}>
               {ele.title.split(" ").slice(0, 4).join(" ")}

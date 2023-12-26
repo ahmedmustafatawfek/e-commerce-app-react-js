@@ -1,14 +1,32 @@
-.btn{
-    width: 25%;
-    background-color: black;
-    color: white;
-    border: unset;
-    border-radius: 1rem;
-    padding-block: .5rem;
-    padding-inline: .8rem;
-    transition: all .5s ease-in-out;
+.btn {
+  width: 25%;
+  background-color: black;
+  color: white;
+  border: unset;
+  border-radius: 1rem;
+  padding-block: 0.5rem;
+  padding-inline: 0.8rem;
+  transition: all 0.5s ease-in-out;
 }
-.btn:hover{
-    color: black;
-    background-color: white;
+.btn:hover {
+  color: black;
+  background-color: white;
 }
+
+/* slick slider class from details page */
+.slick-dots {
+  top: 0;
+  left: -5.5rem;
+  width: 25% !important;
+  display: flex !important;
+  flex-direction: column;
+  overflow: hidden;
+}
+.slick-dots li {
+  margin-block-end: 5rem !important;
+}
+.slick-dots img {
+  width: 4rem;
+}
+/* slick slider class from details page */
+

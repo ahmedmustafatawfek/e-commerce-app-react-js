@@ -1,0 +1,23 @@
+.mightLike {
+  padding-block: 5rem;
+  width: 90%;
+}
+
+.arrows i {
+  cursor: pointer;
+}
+
+.arrows .btn {
+  background-color: rgb(240, 240, 240);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.product {
+  padding-inline: 1rem;
+  padding-block-start: 0.5rem;
+}
+
+.product img {
+  padding-block-end: 1.5rem;
+}

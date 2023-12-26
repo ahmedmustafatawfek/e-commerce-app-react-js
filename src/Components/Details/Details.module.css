@@ -1,3 +1,85 @@
 .marginTop {
-    margin-block-start: 4rem;
+  margin-block-start: 7rem;
+}
+
+/* slick slider class in app.css */
+
+.desc {
+  color: rgb(150, 150, 150);
+}
+
+.reviews {
+  color: rgb(150, 150, 150);
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+.star {
+  font-size: 0.9rem;
+  color: rgb(255, 132, 0);
+}
+.price {
+  font-weight: 700;
+}
+
+.underline {
+  border-bottom: solid 0.1rem rgb(205, 205, 205);
+}
+
+.quantity {
+  width: 100%;
+}
+.quantity input {
+  text-align: center;
+  border-radius: 0.5rem;
+  padding-block: 0.5rem;
+  border: unset;
+  background-color: rgb(240, 240, 240);
+}
+
+.decrease {
+  position: absolute;
+  width: 5%;
+}
+.increase {
+  position: absolute;
+  right: 13%;
+  width: 5%;
+}
+
+.cartbtn {
+  display: block;
+  margin-inline: auto;
+  width: 85%;
+  margin-block: 1rem;
+  background-color: black;
+  color: white;
+  border: unset;
+  border-radius: 0.5rem;
+  padding-block: 0.5rem;
+  padding-inline: 0.8rem;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+}
+.cartbtn:hover {
+  color: black;
+  background-color: #e3abad;
+}
+.fav {
+  cursor: pointer;
+  color: rgb(120, 120, 120);
+  transition: all 0.3s ease-in-out;
+}
+
+.fav:hover {
+  color: black;
+}
+.table {
+  padding-block-start: 7rem;
+  padding-inline-start: 4.5rem;
+}
+.table p {
+  font-size: 0.9rem;
 }

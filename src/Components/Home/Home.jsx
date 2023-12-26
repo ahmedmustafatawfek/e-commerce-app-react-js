@@ -15,7 +15,6 @@ import img1 from "../../images/instagram/img1.png";
 import img2 from "../../images/instagram/img2.png";
 import img3 from "../../images/instagram/img3.png";
 import img4 from "../../images/instagram/img4.png";
-import Footer from "../Footer/Footer";
 
 export default function Home() {
   return (
@@ -223,7 +222,6 @@ export default function Home() {
             </div>
           </div>
 
-          <Footer/>
         </div>
       </div>
     </>

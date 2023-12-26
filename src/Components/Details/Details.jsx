@@ -4,25 +4,40 @@ import { useParams } from "react-router";
 import axios from "axios";
 import { LineWave } from "react-loader-spinner";
 import Slider from "react-slick";
+import MightLike from "../Details/MightLike";
 
+// main function component
 export default function Details() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay:true
-  };
+  
+  // use state
   const [isLoading, setIsLoading] = useState(true);
   const [details, setDetails] = useState([]);
 
-  useEffect(() => {
-    getDetails(params.id);
-  }, []);
+  // setting for slick slider
+  const settings = {
+    customPaging: function (i) {
+      return <img src={details.images[i]} />;
+    },
+    arrows: false,
+    dots: true,
+    dotsClass: "slick-dots slick-thumb",
+    infinite: true,
+    speed: 1500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 7000,
+  };
 
+  // use params
   let params = useParams();
 
+  // use effect functions
+  useEffect(() => {
+    getDetails(params.id);
+  }, [params.id]);
+
+  // get details for spacific product with id
   async function getDetails(id) {
     let { data } = await axios.get(
       `https://ecommerce.routemisr.com/api/v1/products/${id}`
@@ -31,7 +46,7 @@ export default function Details() {
     setIsLoading(false);
   }
 
-
+  // rendering the component
   return (
     <>
       <div className={styles.marginTop}>
@@ -52,31 +67,99 @@ export default function Details() {
               lastLineColor=""
             />
           ) : (
-            <div className="row align-items-center">
-              <div className="col-md-4">
-                <Slider {...settings}>
-                 {details.images.map((ele , index)=><img key={index} src={ele} className="w-100" alt="" />)}
-                </Slider>
-              </div>
-              <div className="col-md-8">
-                <h2 className="pb-3">{details.title}</h2>
-                <p className="pb-1">{details.description}</p>
-                <p className="pb-3">{details.category.name}</p>
-                <div className="d-flex justify-content-between pb-2">
-                  <h5>{details.price} EGP</h5>
-                  <h5>
-                    {details.ratingsAverage}
-                    <i className="fa fa-star text-warning ms-2"></i>
-                  </h5>
+            <>
+              {/* details of product */}
+              <div className="row justify-content-center">
+                {/* left side to show product images */}
+                <div className="col-md-4 ms-4">
+                  <Slider {...settings}>
+                    {details.images.map((ele, index) => (
+                      <img key={index} src={ele} className="img-fluid" alt="" />
+                    ))}
+                  </Slider>
                 </div>
-                <button className="cart-btn w-100 ">Add To Cart</button>
+
+                {/* right side to show details of product */}
+                <div className="col-md-6 ms-5">
+                  <h2 className="pb-3 h4">{details.title}</h2>
+                  <p className={`${styles.desc}`}>{details.description}</p>
+                  <p className={`${styles.desc}`}>{details.category.name}</p>
+
+                  <h5>
+                    <i className={`fa fa-star ${styles.star}`}></i>
+                    <i className={`fa fa-star ${styles.star}`}></i>
+                    <i className={`fa fa-star ${styles.star}`}></i>
+                    <i className={`fa fa-star ${styles.star}`}></i>
+                    <i
+                      class={`fa-solid fa-star-half-stroke me-2 ${styles.star}`}
+                    ></i>
+                    <span
+                      className={styles.reviews}
+                    >{`${details.ratingsQuantity} Reviews`}</span>
+                  </h5>
+
+                  <div className={`py-2 ${styles.underline}`}>
+                    <h5 className={styles.price}>
+                      EGP {`${details.price}.00`}{" "}
+                    </h5>
+                    <p className="my-3">
+                      <i class="fa-regular fa-eye"></i> {details.sold} people
+                      are looking at this product
+                    </p>
+                  </div>
+
+                  <div className={`${styles.quantity} mt-4`}>
+                    <input
+                      type="button"
+                      value="-"
+                      className={styles.decrease}
+                    />
+                    <input type="text" value="1" className="w-100" />
+                    <input
+                      type="button"
+                      value="+"
+                      className={styles.increase}
+                    />
+                  </div>
+                  <button className={` w-100 ${styles.cartbtn} `}>
+                    Add To Cart
+                  </button>
+
+                  <p className={`d-inline ms-2 me-5 ${styles.fav}`}>
+                    <i class="fa-regular fa-heart"></i> Wishlist
+                  </p>
+
+                  <p className={`d-inline ${styles.fav}`}>
+                    <i class="fa-solid fa-share-nodes"></i> Share
+                  </p>
+                </div>
               </div>
-            </div>
+
+              {/* table of general information */}
+              <div className={`row mx-auto ${styles.table}`}>
+                <div className="col-md-2">
+                  <p className={styles.desc}>Description</p>
+                  <p>Size</p>
+                  <p>Color</p>
+                  <p>Weight</p>
+                </div>
+                <div className="col-md-3">
+                  <p>Additional Info</p>
+                  <p className={styles.desc}>XSS, XS, S, M, L, XL, 2XL, 3XL</p>
+                  <p className={styles.desc}>Red, Green, Blue</p>
+                  <p className={styles.desc}>1.5lb, 0.68Kg</p>
+                </div>
+                <div className="col-md-3">
+                  <p className={styles.desc}>Reviews</p>
+                </div>
+              </div>
+
+              {/* might like products */}
+              {<MightLike />}
+            </>
           )}
         </div>
       </div>
     </>
   );
 }
-
-//  <img src={details.imageCover} className="w-100 " alt="" />

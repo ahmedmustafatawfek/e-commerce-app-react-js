@@ -75,3 +75,8 @@ button.butn:hover {
   color: white !important;
   background-color: #ebb6b4 !important;
 }
+
+.star {
+  font-size: 0.9rem;
+  color: rgb(255, 132, 0);
+}

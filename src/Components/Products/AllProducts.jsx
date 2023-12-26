@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./AllProducts.module.css";
 import axios from "axios";
 import { LineWave } from "react-loader-spinner";
@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 
 // STARTING MAIN FUNCTION
 export default function AllProducts() {
+  // SHOW LIMITED ITEMS
+  const [limit, setLimit] = useState(12);
+
   // GET DATA FROM API
   function getProduct() {
     return axios.get("https://ecommerce.routemisr.com/api/v1/products");
@@ -17,7 +20,7 @@ export default function AllProducts() {
 
   // DISPLAY PRODUCTS FUNTION
   function displayProducts() {
-    let allData = data?.data?.data;
+    let allData = data?.data?.data.slice(0, limit);
     return allData.map((ele) => (
       <div className={`col-md-4 mb-5 px-4`} key={ele.id}>
         <div className={`${styles.product}`}>
@@ -56,6 +59,12 @@ export default function AllProducts() {
     ));
   }
 
+  // SHOW MORE ITEMS FUNCTION
+  function showMore() {
+    setLimit(limit + 6);
+    displayProducts();
+  }
+
   return (
     <>
       {/* LOADER AND DISPLAY PRODUCT */}
@@ -77,6 +86,16 @@ export default function AllProducts() {
           {/* LOADING THEN DISPLAY PRODUCTS */}
           <div className={`row ${styles.rows} px-5`}>
             <> {displayProducts()}</>
+
+            <div className={`my-2 pb-5 position-relative`}>
+              <button
+                className={`btn btn-black ${styles.btnMore}`}
+                onClick={showMore}
+                disabled={limit >= 40}
+              >
+                Show more
+              </button>
+            </div>
           </div>
         </>
       )}

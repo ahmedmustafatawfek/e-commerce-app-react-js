@@ -22,7 +22,7 @@
   width: 70%;
   margin: auto;
 }
-.products{
+.products {
   width: 95%;
 }
 
@@ -50,7 +50,7 @@ p.allproducts {
 }
 .fillterBtn p {
   margin: 0;
-  font-size: .7rem;
+  font-size: 0.7rem;
 }
 
 .btns {
@@ -60,3 +60,8 @@ p.allproducts {
 .clearFillter {
   color: rgb(125, 125, 125);
 }
+.filterIcon {
+  font-size: 0.7rem;
+  padding-block-start: 0.3rem;
+}
+

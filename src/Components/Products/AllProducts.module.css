@@ -38,3 +38,13 @@
     font-size: .9rem;
     font-weight: 900;
 }
+
+.btnMore {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btnMore:hover {
+  color: white !important;
+  background-color: #ebb6b4 !important;
+}

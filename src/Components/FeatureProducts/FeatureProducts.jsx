@@ -93,6 +93,7 @@ export default function FeatureProducts() {
               <button
                 className={`btn btn-black ${styles.btnMore}`}
                 onClick={showMore}
+                disabled={limit >= 40}
               >
                 Show more
               </button>

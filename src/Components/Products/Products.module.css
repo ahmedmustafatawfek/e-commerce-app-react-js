@@ -1,1 +1,62 @@
-.Products {}
+.background {
+  background-image: url(../../images/productsBG.png);
+  background-position: center;
+  background-size: cover;
+  height: 60vh;
+  width: 100%;
+  position: relative;
+}
+.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.hero h2 {
+  margin-block-end: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.hero p {
+  width: 70%;
+  margin: auto;
+}
+.products{
+  width: 95%;
+}
+
+p.allproducts {
+  color: rgb(165, 165, 165);
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.fillterBtn {
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
+  padding-block: 0.2rem;
+  border: unset;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 1rem;
+  margin-block-end: 3rem;
+}
+
+.fillterBtn i {
+  font-size: 0.5rem;
+}
+.fillterBtn p {
+  margin: 0;
+  font-size: .7rem;
+}
+
+.btns {
+  display: flex;
+}
+
+.clearFillter {
+  color: rgb(125, 125, 125);
+}

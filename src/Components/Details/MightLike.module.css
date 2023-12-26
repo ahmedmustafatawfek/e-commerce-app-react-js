@@ -21,3 +21,13 @@
 .product img {
   padding-block-end: 1.5rem;
 }
+/* discount classes */
+.oldPrice{
+  text-decoration: line-through;
+  color:#6c757d;
+  font-size: .7rem;
+}
+.afterDiscount{
+  font-size: .8rem;
+  font-weight: 900;
+}

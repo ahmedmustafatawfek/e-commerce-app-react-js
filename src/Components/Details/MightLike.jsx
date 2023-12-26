@@ -108,11 +108,24 @@ export default function MightLike() {
                           alt=""
                         />
                         <h3 className={`p text-center`}>
-                          {ele.title.split(" ").slice(0, 4).join(" ")}
+                          {ele.title.split(" ").slice(0, 3).join(" ")}
                         </h3>
-                        <p className={`fw-normal text-center`}>
-                          {ele.price} EGP
-                        </p>
+                        <div className="d-flex align-items-center justify-content-center">
+                          {ele.priceAfterDiscount && (
+                            <p className={`${styles.afterDiscount} ms-3`}>
+                              {ele.priceAfterDiscount} EGP
+                            </p>
+                          )}
+                          {ele.priceAfterDiscount ? (
+                            <p className={`${styles.oldPrice} ms-3`}>
+                              {ele.price} EGP
+                            </p>
+                          ) : (
+                            <p className={`${styles.price} ms-3`}>
+                              {ele.price} EGP
+                            </p>
+                          )}
+                        </div>
                       </Link>
                     </div>
                   </div>

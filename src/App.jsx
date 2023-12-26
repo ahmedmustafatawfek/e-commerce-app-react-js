@@ -5,7 +5,6 @@ import Home from "./Components/Home/Home";
 import Products from "./Components/Products/Products";
 import Categories from "./Components/Categories/Categories";
 import Cart from "./Components/Cart/Cart";
-import Brands from "./Components/Brands/Brands";
 import Profile from "./Components/Profile/Profile";
 import Details from "./Components/Details/Details";
 import Register from "./Components/Register/Register";
@@ -25,7 +24,6 @@ let routers = createBrowserRouter([
       { path: "products", element:<ProtectedRoutes> <Products /> </ProtectedRoutes>  },
       { path: "categories", element:<ProtectedRoutes> <Categories /> </ProtectedRoutes>  },
       { path: "cart", element:<ProtectedRoutes> <Cart /> </ProtectedRoutes> },
-      { path: "brands", element:<ProtectedRoutes> <Brands /> </ProtectedRoutes> },
       { path: "profile", element:<ProtectedRoutes> <Profile /> </ProtectedRoutes>},
       { path: "details/:id", element:<ProtectedRoutes> <Details /> </ProtectedRoutes>},
       

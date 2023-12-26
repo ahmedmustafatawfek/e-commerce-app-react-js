@@ -8,7 +8,6 @@ import MightLike from "../Details/MightLike";
 
 // main function component
 export default function Details() {
-  
   // use state
   const [isLoading, setIsLoading] = useState(true);
   const [details, setDetails] = useState([]);
@@ -99,9 +98,22 @@ export default function Details() {
                   </h5>
 
                   <div className={`py-2 ${styles.underline}`}>
-                    <h5 className={styles.price}>
-                      EGP {`${details.price}.00`}{" "}
-                    </h5>
+                    <div className="d-flex align-items-center">
+                      {details.priceAfterDiscount && (
+                        <p className={`${styles.afterDiscount}`}>
+                          {details.priceAfterDiscount} EGP
+                        </p>
+                      )}
+                      {details.priceAfterDiscount ? (
+                        <p className={`${styles.oldPrice} ms-3`}>
+                          {details.price} EGP
+                        </p>
+                      ) : (
+                        <p className={`${styles.price} ms-3`}>
+                          {details.price} EGP
+                        </p>
+                      )}
+                    </div>
                     <p className="my-3">
                       <i class="fa-regular fa-eye"></i> {details.sold} people
                       are looking at this product

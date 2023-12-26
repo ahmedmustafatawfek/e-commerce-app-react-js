@@ -83,3 +83,14 @@
 .table p {
   font-size: 0.9rem;
 }
+
+/* discount classes */
+.oldPrice{
+    text-decoration: line-through;
+    color:#6c757d;
+    font-size: .9rem;
+}
+.afterDiscount{
+    font-size: 1.5rem;
+    font-weight: 900;
+}

@@ -80,3 +80,13 @@ button.butn:hover {
   font-size: 0.9rem;
   color: rgb(255, 132, 0);
 }
+/* discount classes */
+.oldPrice{
+  text-decoration: line-through;
+  color:#6c757d;
+  font-size: .8rem;
+}
+.afterDiscount{
+  font-size: .9rem;
+  font-weight: 900;
+}

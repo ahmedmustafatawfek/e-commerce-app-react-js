@@ -1,0 +1,40 @@
+.cardImage {
+  margin-block-end: 1rem;
+  width: 100%;
+}
+.product {
+  box-shadow: 0.2rem 0.2rem 0.8rem 0.1rem #e3a5a587;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: start;
+}
+
+.productImg {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 1rem;
+}
+.price {
+  font-size: 0.9rem;
+}
+
+.star {
+  font-size: 0.9rem;
+  color: rgb(255, 132, 0);
+}
+
+/* discount classes */
+.oldPrice{
+    text-decoration: line-through;
+    color:#6c757d;
+    font-size: .8rem;
+}
+.afterDiscount{
+    font-size: .9rem;
+    font-weight: 900;
+}

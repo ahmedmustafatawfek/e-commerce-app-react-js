@@ -1,38 +1,33 @@
-import React, { useState } from "react";
-import styles from "./FeatureProducts.module.css";
+import React from "react";
+import styles from "./AllProducts.module.css";
 import axios from "axios";
 import { LineWave } from "react-loader-spinner";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 
 // STARTING MAIN FUNCTION
-export default function FeatureProducts() {
-  // SHOW LIMITED ITEMS
-  const [limit, setLimit] = useState(6);
-
+export default function AllProducts() {
   // GET DATA FROM API
   function getProduct() {
     return axios.get("https://ecommerce.routemisr.com/api/v1/products");
   }
 
   // USING USEQUERY
-  let { data, isLoading } = useQuery("featureProducts", getProduct);
-  console.log(data, data?.data?.metadata?.limit);
+  let { data, isLoading } = useQuery("AllProducts", getProduct);
 
   // DISPLAY PRODUCTS FUNTION
   function displayProducts() {
-    let limitedItems = data?.data?.data.slice(0, limit);
-    console.log("limited items", limitedItems);
-    return limitedItems.map((ele) => (
+    let allData = data?.data?.data;
+    return allData.map((ele) => (
       <div className={`col-md-4 mb-5 px-4`} key={ele.id}>
         <div className={`${styles.product}`}>
-          <Link to={"details/" + ele.id} className="link">
+          <Link to={"/details/" + ele.id} className="link">
             <img
               src={ele.imageCover}
               className={`${styles.cardImage} ${styles.productImg}`}
               alt=""
             />
-            <h5>
+            <h5 className="ms-3">
               <i className={`fa fa-star ${styles.star}`}></i>
               <i className={`fa fa-star ${styles.star}`}></i>
               <i className={`fa fa-star ${styles.star}`}></i>
@@ -40,12 +35,12 @@ export default function FeatureProducts() {
               <i class={`fa-solid fa-star-half-stroke me-2 ${styles.star}`}></i>
             </h5>
 
-            <h3 className={`${styles.title}`}>
+            <h3 className={`${styles.title} ms-3`}>
               {ele.title.split(" ").slice(0, 4).join(" ")}
             </h3>
-            <div className="d-flex align-items-center justify-content-center">
+            <div className="d-flex align-items-center">
               {ele.priceAfterDiscount && (
-                <p className={`${styles.afterDiscount}`}>
+                <p className={`${styles.afterDiscount} ms-3`}>
                   {ele.priceAfterDiscount} EGP
                 </p>
               )}
@@ -59,12 +54,6 @@ export default function FeatureProducts() {
         </div>
       </div>
     ));
-  }
-
-  // SHOW MORE ITEMS FUNCTION
-  function showMore() {
-    setLimit(limit + 6);
-    displayProducts();
   }
 
   return (
@@ -86,36 +75,11 @@ export default function FeatureProducts() {
       ) : (
         <>
           {/* LOADING THEN DISPLAY PRODUCTS */}
-          <div className={`row ${styles.rows}`}>
+          <div className={`row ${styles.rows} px-5`}>
             <> {displayProducts()}</>
-
-            <div className={`my-2 pb-5 position-relative`}>
-              <button
-                className={`btn btn-black ${styles.btnMore}`}
-                onClick={showMore}
-              >
-                Show more
-              </button>
-            </div>
           </div>
         </>
       )}
     </>
   );
 }
-
-// let [products, setProducts] = useState([]);
-// let [isLoading, setIsLoading] = useState(true);
-
-// async function getProduct() {
-//   let { data } = await axios.get(
-//     "https://ecommerce.routemisr.com/api/v1/products"
-//   );
-//   console.log(data.data);
-//   setProducts(data.data);
-//   setIsLoading(false);
-// }
-
-// useEffect(() => {
-//   getProduct();
-// }, []);

@@ -65,7 +65,7 @@ export default function NavBar() {
             {token ? (
               <>
                 {/* home menu */}
-                <ul className="navbar-nav ms-auto   mb-2 mb-lg-0">
+                <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li className="nav-item">
                     <Link
                       className="nav-link text-black active"
@@ -77,7 +77,7 @@ export default function NavBar() {
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link text-black" to="products">
-                      products
+                      Shop
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -85,14 +85,9 @@ export default function NavBar() {
                       categories
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link text-black" to="brands">
-                      Brands
-                    </Link>
-                  </li>
                 </ul>
 
-                {/* search , profile and cart */}
+                {/* profile, cart, logout */}
                 <ul className="navbar-nav ms-auto  mb-2 mb-lg-0">
                   <li className="nav-item">
                     <Link className="nav-link text-black" to="Profile">

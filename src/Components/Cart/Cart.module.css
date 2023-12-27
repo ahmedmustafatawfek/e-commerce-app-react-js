@@ -1,1 +1,87 @@
-.Cart {}
+.hero {
+  margin-block-start: 7rem;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+}
+
+.hero p {
+  font-size: 0.8rem;
+}
+
+.cartTable .row {
+  width: 85%;
+  margin-inline: auto;
+  border-bottom: 0.1rem solid rgb(220, 220, 220);
+}
+
+.cartItem {
+  padding-block: 1rem;
+}
+
+.title {
+  font-size: 0.9rem;
+}
+.info p {
+  font-size: 0.8rem;
+  color: rgb(130, 130, 130);
+}
+.info i {
+  color: rgb(130, 130, 130);
+}
+.quantityBtn {
+  border-radius: 0.5rem;
+  background-color: rgb(245, 245, 245);
+  border: 0.1rem solid rgb(220, 220, 220);
+}
+
+.checkout {
+  width: 85%;
+  padding-block: 3rem;
+}
+
+.inputfield {
+  position: relative;
+}
+
+.inputfield input {
+  width: 75%;
+  border: 0.1rem solid rgb(220, 220, 220);
+  color: black;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.inputfield span {
+  font-weight: 500;
+  font-size: 0.9rem;
+  position: absolute;
+  right: 25%;
+  /* top: 20%; */
+  padding-block: 0.6rem;
+  padding-inline: 0.6rem;
+}
+
+.right {
+  border: 0.1rem solid rgb(220, 220, 220);
+  padding-block: 1.5rem;
+  padding-inline: 1rem;
+}
+
+.option {
+  font-size: 0.9rem;
+  color: black;
+  border: 0.1rem solid rgb(220, 220, 220);
+  padding-block: 0.5rem;
+}
+
+.price {
+  border-bottom: 0.1rem solid rgb(220, 220, 220);
+}
+
+.checkoutBtn:hover {
+  color: white !important;
+  background-color: #ebb6b4 !important;
+}

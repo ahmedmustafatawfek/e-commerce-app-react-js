@@ -1,4 +1,4 @@
-import React, { useContext ,useState} from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import logo from "../../images/Vector.png";
@@ -6,7 +6,6 @@ import profile from "../../images/user.png";
 import cart from "../../images/cart.png";
 import logout from "../../images/logout.png";
 import { tokenContext } from "../../context/tokenContext";
-import $ from "jquery";
 
 export default function NavBar() {
   let { token, setToken } = useContext(tokenContext);
@@ -72,17 +71,26 @@ export default function NavBar() {
                       aria-current="page"
                       to="/"
                     >
-                      Home
+                      <div className="d-flex align-items-center">
+                        <p className="m-0">Home</p>
+                        <i class={`fa-solid fa-sort-down ms-2`}></i>
+                      </div>
                     </Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link text-black" to="products">
-                      Shop
+                      <div className="d-flex align-items-center">
+                        <p className="m-0">Shop</p>
+                        <i class={`fa-solid fa-sort-down ms-2`}></i>
+                      </div>
                     </Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link text-black" to="categories">
-                      categories
+                      <div className="d-flex align-items-center">
+                        <p className="m-0">Categories</p>
+                        <i class={`fa-solid fa-sort-down ms-2`}></i>
+                      </div>
                     </Link>
                   </li>
                 </ul>

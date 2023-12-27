@@ -1,5 +1,4 @@
-
-.btn{
+.btn {
   display: block;
   margin-inline-start: auto;
   width: 25%;
@@ -8,45 +7,55 @@
   color: white;
   border: unset;
   border-radius: 1rem;
-  padding-block: .5rem;
-  padding-inline: .8rem;
-  transition: all .5s ease-in-out;
+  padding-block: 0.5rem;
+  padding-inline: 0.8rem;
+  transition: all 0.5s ease-in-out;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: rgb(0, 140, 255);
 }
 
-.btn:disabled{
+.btn:disabled {
   background-color: black;
   color: white;
 }
 
-.p{
-  font-size: .9rem;
+.p {
+  font-size: 0.9rem;
   padding-inline-start: 1rem;
 }
 
-.margin-y{
+.margin-y {
   margin-block: 8rem;
 }
 
-
-
-
-.link{
-text-decoration: unset;
-color: black;
-font-weight: 700;
-padding-inline-start: .3rem;
-
+.link {
+  text-decoration: unset;
+  color: black;
+  font-weight: 700;
+  padding-inline-start: 0.3rem;
 }
 
-.form-control:focus{
+.form-control:focus {
   border: unset;
-  box-shadow: 0 0 0 0.25rem #CFF4FC;
+  box-shadow: 0 0 0 0.25rem #cff4fc;
 }
 
 input:focus-visible {
   outline: unset;
+}
+
+.form-check-input:checked[type=radio]{
+  background-color: black;
+}
+
+.form-check-input:checked {
+  background-color: black;
+  border-color: black;
+}
+.form-check-input:focus {
+  border-color: black;
+  outline: 0;
+  box-shadow: 0 0 0;
 }

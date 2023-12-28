@@ -3,18 +3,11 @@ import styles from "./MightLike.module.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { LineWave } from "react-loader-spinner";
+import { useQuery } from "react-query";
 
 export default function MightLike() {
   // use state
-  const [products, setProducts] = useState([]);
-  const [allProducts, setAllProduct] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [startIndex, setStartIndex] = useState(0);
-
-  // use effect
-  useEffect(() => {
-    displayData();
-  }, []);
 
   // refresh page
   function refreshPage() {
@@ -23,40 +16,26 @@ export default function MightLike() {
     }, 500);
   }
 
-  // get products
-  async function getProducts() {
-    const { data } = await axios.get(
-      "https://ecommerce.routemisr.com/api/v1/products"
-    );
-    return data?.data || [];
-  }
+  // USING USEQUERY
+  const { data: allProducts, isLoading } = useQuery("MightLike", () =>
+    axios
+      .get("https://ecommerce.routemisr.com/api/v1/products")
+      .then((response) => response.data?.data || [])
+  );
 
-  // display products
-  function displayData() {
-    changeLayout();
-  }
-  async function changeLayout() {
-    const productsData = await getProducts();
-    setAllProduct(productsData);
-    setIsLoading(false);
-    setProducts(productsData.slice(startIndex, startIndex + 4));
-  }
+  const products = allProducts?.slice(startIndex, startIndex + 4) || [];
 
-  // prev Product function
   function prevProducts() {
     if (startIndex >= 4) {
       setStartIndex(startIndex - 4);
     }
   }
-  // next Product function
+
   function nextProducts() {
     if (startIndex + 4 < allProducts.length) {
       setStartIndex(startIndex + 4);
     }
   }
-  useEffect(() => {
-    changeLayout();
-  }, [startIndex]);
 
   return (
     <>

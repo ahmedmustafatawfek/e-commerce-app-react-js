@@ -147,7 +147,9 @@ export default function Cart() {
               </div>
 
               {/* checkout button */}
-              <button className={`btn w-100 mt-4 mb-1 ${styles.checkoutBtn}`}>Checkout</button>
+              <button className={`btn w-100 mt-4 mb-1 ${styles.checkoutBtn}`}>
+                Checkout
+              </button>
             </div>
           </div>
         </div>

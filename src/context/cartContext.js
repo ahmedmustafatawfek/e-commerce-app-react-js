@@ -1,15 +1,28 @@
+import axios from "axios";
 import { createContext } from "react";
 
 
- export let cartContext = createContext()
+export let CartContext = createContext()
+let headers = {
+    token: localStorage.getItem("userToken")
+}
 
- function addToCart(){
-    console.log("added to cart");
- }
+function addToCart(id) {
+    return axios.post("https://ecommerce.routemisr.com/api/v1/cart", {
+        productId: id
+    }, { headers }).then((res) => res)
+}
 
-export default function cartContextProvider(props){
 
-    return <cartContext.Provider value={addToCart}>
+function getCart() {
+    return axios.get("https://ecommerce.routemisr.com/api/v1/cart", {
+        headers
+    }).then((res) => res)
+}
+
+export default function CartContextProvider(props) {
+
+    return <CartContext.Provider value={{ addToCart, getCart }}>
         {props.children}
-    </cartContext.Provider>
+    </CartContext.Provider>
 }

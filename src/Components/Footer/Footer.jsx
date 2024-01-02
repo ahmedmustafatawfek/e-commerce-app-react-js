@@ -21,19 +21,19 @@ export default function Footer() {
             </p>
             <div className={`${styles.social} d-flex align-items-center my-4`}>
               <Link className="me-4" to="https://www.facebook.com">
-                <i class="fa-brands fa-facebook-f"></i>
+                <i className="fa-brands fa-facebook-f"></i>
               </Link>
 
               <Link className="mx-4" to="https://www.instagram.com">
-                <i class="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram"></i>
               </Link>
 
               <Link className="mx-4" to="https://www.twitter.com">
-                <i class="fa-brands fa-x-twitter"></i>
+                <i className="fa-brands fa-x-twitter"></i>
               </Link>
 
               <Link className="ms-4" to="https://www.gmail.com">
-                <i class="fa-solid fa-envelope"></i>
+                <i className="fa-solid fa-envelope"></i>
               </Link>
             </div>
 

@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Details.module.css";
 import { useParams } from "react-router";
 import axios from "axios";
 import { LineWave } from "react-loader-spinner";
 import Slider from "react-slick";
 import MightLike from "../Details/MightLike";
+import { CartContext } from "../../context/cartContext";
+import toast from "react-hot-toast";
 
 // main function component
 export default function Details() {
+  // use context
+  let { addToCart } = useContext(CartContext);
+
   // use state
   const [isLoading, setIsLoading] = useState(true);
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState({});
 
   // setting for slick slider
   const settings = {
     customPaging: function (i) {
-      return <img src={details.images[i]} />;
+      return <img src={details.images && details.images[i]} />;
     },
     arrows: false,
     dots: true,
@@ -38,11 +43,39 @@ export default function Details() {
 
   // get details for spacific product with id
   async function getDetails(id) {
-    let { data } = await axios.get(
-      `https://ecommerce.routemisr.com/api/v1/products/${id}`
-    );
-    setDetails(data?.data);
-    setIsLoading(false);
+    try {
+      let { data } = await axios.get(
+        `https://ecommerce.routemisr.com/api/v1/products/${id}`
+      );
+      setDetails(data?.data || {});
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error fetching details:", error);
+      setIsLoading(false);
+    }
+  }
+
+  // function which call main addToCart() from CartContext
+  async function addCart(id) {
+    let res = await addToCart(id);
+    console.log(res);
+
+    // toast notification for adding item to cart or not
+    if (res.data.status === "success") {
+      toast("product added successfully", {
+        duration: 4500,
+        position: "top-center",
+
+        // Styling
+        style: {
+          background: "#e3abad",
+          color: "white",
+          padding: ".8rem 1.5rem",
+          margin: ".7rem 0 0 0",
+        },
+        className: "",
+      });
+    }
   }
 
   // rendering the component
@@ -71,11 +104,20 @@ export default function Details() {
               <div className="row justify-content-center">
                 {/* left side to show product images */}
                 <div className="col-md-4 ms-4">
-                  <Slider {...settings}>
-                    {details.images.map((ele, index) => (
-                      <img key={index} src={ele} className="img-fluid" alt="" />
-                    ))}
-                  </Slider>
+                  {details.images && details.images.length > 0 ? (
+                    <Slider {...settings}>
+                      {details.images.map((ele, index) => (
+                        <img
+                          key={index}
+                          src={ele}
+                          className="img-fluid"
+                          alt=""
+                        />
+                      ))}
+                    </Slider>
+                  ) : (
+                    <p>No images available</p>
+                  )}
                 </div>
 
                 {/* right side to show details of product */}
@@ -133,7 +175,10 @@ export default function Details() {
                       className={styles.increase}
                     />
                   </div>
-                  <button className={` w-100 ${styles.cartbtn} `}>
+                  <button
+                    onClick={() => addCart(details.id)}
+                    className={` w-100 ${styles.cartbtn} `}
+                  >
                     Add To Cart
                   </button>
 

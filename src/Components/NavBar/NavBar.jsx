@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./NavBar.module.css";
-import logo from "../../images/Vector.png";
+import logo from "../../images/eShopify-removebg-preview.png";
 import profile from "../../images/user.png";
 import cart from "../../images/cart.png";
 import logout from "../../images/logout.png";
@@ -37,15 +37,18 @@ export default function NavBar() {
         }
       >
         <div className="container">
-          <div className="d-flex align-items-center ">
-            <img src={logo} alt="logo" className={styles.logo} />
+          <div className="row">
+            <div className="col-md-4">
+              <div className="d-flex align-items-center ">
+                <img src={logo} alt="logo" className={styles.logo} />
 
-            <Link className="navbar-brand fw-bold ps-1 " to="/">
-              SHOPR
-            </Link>
-          </div>
-
-          {/* <button
+                <Link className="navbar-brand fw-bold " to="/">
+                  ESHOPIFY
+                </Link>
+              </div>
+            </div>
+            <div className="col-md-8">
+              {/* <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -56,85 +59,98 @@ export default function NavBar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button> */}
-          {/* mainul for home page */}
-          <div
-            className="collapse navbar-collapse d-flex  justify-content-between"
-            id="navbarSupportedContent"
-          >
-            {token ? (
-              <>
-                {/* home menu */}
-                <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link text-black active"
-                      aria-current="page"
-                      to="/"
+              {/* mainul for home page */}
+              <div
+                className="collapse navbar-collapse d-flex  justify-content-between"
+                id="navbarSupportedContent"
+              >
+                {token ? (
+                  <>
+                    {/* home menu */}
+                    <ul
+                      className={`navbar-nav  mb-2 mb-lg-0 ${styles.firstMenu}`}
                     >
-                      <div className="d-flex align-items-center">
-                        <p className="m-0">Home</p>
-                        <i class={`fa-solid fa-sort-down ms-2`}></i>
-                      </div>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link text-black" to="products">
-                      <div className="d-flex align-items-center">
-                        <p className="m-0">Shop</p>
-                        <i class={`fa-solid fa-sort-down ms-2`}></i>
-                      </div>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link text-black" to="categories">
-                      <div className="d-flex align-items-center">
-                        <p className="m-0">Categories</p>
-                        <i class={`fa-solid fa-sort-down ms-2`}></i>
-                      </div>
-                    </Link>
-                  </li>
-                </ul>
+                      <li className="nav-item">
+                        <Link
+                          className="nav-link text-black active"
+                          aria-current="page"
+                          to="/"
+                        >
+                          <div className="d-flex align-items-center">
+                            <p className="m-0">Home</p>
+                            <i className={`fa-solid fa-sort-down ms-2`}></i>
+                          </div>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link text-black" to="products">
+                          <div className="d-flex align-items-center">
+                            <p className="m-0">Shop</p>
+                            <i className={`fa-solid fa-sort-down ms-2`}></i>
+                          </div>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link text-black" to="categories">
+                          <div className="d-flex align-items-center">
+                            <p className="m-0">Categories</p>
+                            <i className={`fa-solid fa-sort-down ms-2`}></i>
+                          </div>
+                        </Link>
+                      </li>
+                    </ul>
 
-                {/* profile, cart, logout */}
-                <ul className="navbar-nav ms-auto  mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <Link className="nav-link text-black" to="Profile">
-                      <img
-                        className={styles.icon}
-                        src={profile}
-                        alt="profile"
-                      />
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link text-black" to="Cart">
-                      <img className={styles.icon} src={cart} alt="cart" />
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <button className="nav-link text-black" onClick={logOut}>
-                      <img className={styles.icon} src={logout} alt="logout" />
-                    </button>
-                  </li>
-                </ul>
-              </>
-            ) : (
-              <>
-                {/* register and login ul */}
-                <ul className="navbar-nav ms-auto   mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <Link className="nav-link text-black" to="register">
-                      register
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link text-black" to="login">
-                      login
-                    </Link>
-                  </li>
-                </ul>
-              </>
-            )}
+                    {/* profile, cart, logout */}
+                    <ul
+                      className={`navbar-nav mb-2 mb-lg-0 ${styles.lastMenu}`}
+                    >
+                      <li className="nav-item">
+                        <Link className="nav-link text-black" to="Profile">
+                          <img
+                            className={styles.icon}
+                            src={profile}
+                            alt="profile"
+                          />
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link text-black" to="Cart">
+                          <img className={styles.icon} src={cart} alt="cart" />
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <button
+                          className="nav-link text-black"
+                          onClick={logOut}
+                        >
+                          <img
+                            className={styles.icon}
+                            src={logout}
+                            alt="logout"
+                          />
+                        </button>
+                      </li>
+                    </ul>
+                  </>
+                ) : (
+                  <>
+                    {/* register and login ul */}
+                    <ul className="navbar-nav ms-auto   mb-2 mb-lg-0">
+                      <li className="nav-item">
+                        <Link className="nav-link text-black" to="register">
+                          register
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link text-black" to="login">
+                          login
+                        </Link>
+                      </li>
+                    </ul>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </nav>

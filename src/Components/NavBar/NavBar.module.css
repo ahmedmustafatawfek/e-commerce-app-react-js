@@ -13,8 +13,17 @@
 
 .logo {
   width: 15%;
+
 }
 
 .icon {
   width: 85%;
+}
+.firstMenu{
+  margin-inline-start:4rem;
+
+}
+
+.lastMenu{
+  margin-inline-start: 10rem;
 }

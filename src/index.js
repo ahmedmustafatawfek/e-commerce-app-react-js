@@ -10,16 +10,16 @@ import "./index.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import TokenContextProvider from "./context/tokenContext";
 import { QueryClient, QueryClientProvider } from "react-query";
-import cartContextProvider  from './context/cartContext';
+import CartContextProvider from "./context/cartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 let query = new QueryClient();
 root.render(
-  <cartContextProvider>
+  <CartContextProvider>
     <QueryClientProvider client={query}>
       <TokenContextProvider>
         <App />
       </TokenContextProvider>
     </QueryClientProvider>
-  </cartContextProvider>
+  </CartContextProvider>
 );

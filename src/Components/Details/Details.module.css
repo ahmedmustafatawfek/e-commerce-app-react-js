@@ -64,7 +64,7 @@
   transition: all 0.5s ease-in-out;
 }
 .cartbtn:hover {
-  color: black;
+  color: white;
   background-color: #e3abad;
 }
 .fav {

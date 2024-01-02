@@ -103,7 +103,7 @@ export default function Home() {
               </p>
 
               <Link to="Products" className={`${styles.link}`}>
-                See All <i class="fa-solid fa-arrow-right-long"></i>
+                See All <i className="fa-solid fa-arrow-right-long"></i>
               </Link>
             </div>
 
@@ -139,7 +139,7 @@ export default function Home() {
             <h3 className="h2 pb-3">Join Our Newsletter</h3>
             <p>Big discounts and right to your inbox.</p>
             <form className={`${styles.email}`}>
-              <i class="fa-regular fa-envelope fa-xl"></i>
+              <i className="fa-regular fa-envelope fa-xl"></i>
               <input type="email" placeholder="Email address" />
               <p itemType="submit" className={`fs-6 ${styles.submit}`}>
                 Signup
@@ -176,7 +176,7 @@ export default function Home() {
             <div className="col-md-3 ">
               <div className="row">
                 <div className="col-md-2">
-                  <i class="fa-solid fa-truck-fast fa-l"></i>
+                  <i className="fa-solid fa-truck-fast fa-l"></i>
                 </div>
                 <div className="col-md-10">
                   <h5>Free Shipping</h5>
@@ -188,7 +188,7 @@ export default function Home() {
             <div className="col-md-3">
               <div className="row">
                 <div className="col-md-2">
-                  <i class="fa-solid fa-money-check-dollar"></i>
+                  <i className="fa-solid fa-money-check-dollar"></i>
                 </div>
                 <div className="col-md-10">
                   <h5>Money-back</h5>
@@ -200,7 +200,7 @@ export default function Home() {
             <div className="col-md-3">
               <div className="row">
                 <div className="col-md-2">
-                  <i class="fa-solid fa-phone"></i>
+                  <i className="fa-solid fa-phone"></i>
                 </div>
                 <div className="col-md-10">
                   <h5>Premium Support</h5>
@@ -212,7 +212,7 @@ export default function Home() {
             <div className="col-md-3">
               <div className="row">
                 <div className="col-md-2">
-                  <i class="fa-solid fa-lock"></i>
+                  <i className="fa-solid fa-lock"></i>
                 </div>
                 <div className="col-md-10">
                   <h5>Secure Payments</h5>

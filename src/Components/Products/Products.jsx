@@ -21,12 +21,12 @@ export default function Products() {
             <p className={styles.allproducts}>56 products</p>
             <div className={styles.btns}>
               <div className={`${styles.fillterBtn} me-3`} role="button">
-                <i class="fa-solid fa-x me-2"></i>
+                <i className="fa-solid fa-x me-2"></i>
                 <p>shoes</p>
               </div>
 
               <div className={`${styles.fillterBtn} me-3`} role="button">
-                <i class="fa-solid fa-x me-2"></i>
+                <i className="fa-solid fa-x me-2"></i>
                 <p>shawl</p>
               </div>
 
@@ -34,7 +34,7 @@ export default function Products() {
                 className={`${styles.fillterBtn} ${styles.clearFillter}`}
                 role="button"
               >
-                <i class="fa-solid fa-x me-2"></i>
+                <i className="fa-solid fa-x me-2"></i>
                 <p>Clear All</p>
               </div>
             </div>
@@ -47,14 +47,14 @@ export default function Products() {
               role="button"
             >
               <p>Filter </p>
-              <i class={`fa-solid fa-filter ms-2 ${styles.filterIcon}`}></i>
+              <i className={`fa-solid fa-filter ms-2 ${styles.filterIcon}`}></i>
             </div>
             <div
               className="d-flex justify-content-center align-item-center ms-4"
               role="button"
             >
               <p>Sort by </p>
-              <i class={`fa-solid fa-sort-down ms-2 `}></i>
+              <i className={`fa-solid fa-sort-down ms-2 `}></i>
             </div>
           </div>
         </div>

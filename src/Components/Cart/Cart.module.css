@@ -86,3 +86,9 @@
   color: white !important;
   background-color: #ebb6b4 !important;
 }
+
+.empty{
+  margin-block-start: 5rem;
+  margin-block-end: 4rem;
+  font-size: 2rem;
+}

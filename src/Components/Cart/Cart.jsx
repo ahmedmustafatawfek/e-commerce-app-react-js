@@ -10,7 +10,7 @@ export default function Cart() {
   const [products, setProducts] = useState([]);
 
   // use context
-  let { getCart } = useContext(CartContext);
+  let { getCart, deleteProductFromCart } = useContext(CartContext);
 
   async function getCartDetails() {
     let { data } = await getCart();
@@ -40,6 +40,13 @@ export default function Cart() {
     setTotalPrice(total);
   }
 
+  // delete product from cart
+  async function deleteItem(id) {
+    let { data } = await deleteProductFromCart(id);
+    setCartDetails(data);
+    setProducts(data?.data.products);
+  }
+
   // render main function cart()
   return (
     <div>
@@ -53,66 +60,83 @@ export default function Cart() {
       </div>
 
       <div className={`${styles.cartTable} container`}>
-        {/* head of cart table */}
-        <div className={`row ${styles.row}`}>
-          <div className="col-md-6 d-flex">
-            <p className="me-auto">product</p>
-          </div>
-          <div className="col-md-2 d-flex">
-            <p className="">Quantity</p>
-          </div>
-          <div className="col-md-2 d-flex">
-            <p className="">Price</p>
-          </div>
-          <div className="col-md-2 d-flex">
-            <p className="">Subtotal</p>
-          </div>
-        </div>
-
         {/* row of content  */}
-        {products.map((product, index) => {
-          console.log(product.product);
-          return (
-            <div key={index} className={`row ${styles.row}`}>
-              {/* first col */}
-              <div className="col-md-6 d-flex align-items-center p-0">
-                <img
-                  src={product.product.imageCover}
-                  alt="cart item"
-                  className={`${styles.cartItem} me-4`}
-                />
-                <div className={`${styles.info} text-start mt-3 ms-0`}>
-                  <p className={`text-black ${styles.title}`}>
-                    {product.product.title}
-                  </p>
-                  <p>Size: ... , Color: ...</p>
-                  <div className="d-flex" role="button">
-                    <i className="fa-regular fa-trash-can me-2"></i>
-                    <p>Remove</p>
+        {products.length ? (
+          // if products array conatins products
+          products.map((product, index) => {
+            return (
+              <>
+                {/* head of cart table */}
+                <div className={`row ${styles.row}`}>
+                  <div className="col-md-6 d-flex">
+                    <p className="me-auto">product</p>
+                  </div>
+                  <div className="col-md-2 d-flex">
+                    <p className="">Quantity</p>
+                  </div>
+                  <div className="col-md-2 d-flex">
+                    <p className="">Price</p>
+                  </div>
+                  <div className="col-md-2 d-flex">
+                    <p className="">Subtotal</p>
                   </div>
                 </div>
-              </div>
-              {/* second col */}
-              <div className="col-md-2 d-flex align-items-center px-0">
-                <div className={`d-flex p-0 ${styles.quantityBtn}`}>
-                  <p className={`mb-0 py-2 ps-2`} role="button">
-                    -
-                  </p>
-                  <p className={`mb-0 py-2 px-3`}>{product.count}</p>
-                  <p className={`mb-0 py-2 pe-2`} role="button">
-                    +
-                  </p>
+
+                <div key={index} className={`row ${styles.row}`}>
+                  {/* first col */}
+                  <div className="col-md-6 d-flex align-items-center p-0">
+                    <img
+                      src={product.product.imageCover}
+                      alt="cart item"
+                      className={`${styles.cartItem} me-4`}
+                    />
+                    <div className={`${styles.info} text-start mt-3 ms-0`}>
+                      <p className={`text-black ${styles.title}`}>
+                        {product.product.title}
+                      </p>
+                      <p>Size: ... , Color: ...</p>
+                      <div
+                        className="d-flex"
+                        role="button"
+                        onClick={() => deleteItem(product.product._id)}
+                      >
+                        <i className="fa-regular fa-trash-can me-2"></i>
+                        <p>Remove</p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* second col */}
+                  <div className="col-md-2 d-flex align-items-center px-0">
+                    <div className={`d-flex p-0 ${styles.quantityBtn}`}>
+                      <p className={`mb-0 py-2 ps-2`} role="button">
+                        -
+                      </p>
+                      <p className={`mb-0 py-2 px-3`}>{product.count}</p>
+                      <p className={`mb-0 py-2 pe-2`} role="button">
+                        +
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-md-2 d-flex align-items-center px-0 pt-3">
+                    <p className="fw-bold">{product.price} EGP</p>
+                  </div>
+                  <div className="col-md-2 d-flex align-items-center pt-3">
+                    <p className="fw-bold">
+                      {product.count * product.price} EGP
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="col-md-2 d-flex align-items-center px-0 pt-3">
-                <p className="fw-bold">{product.price} EGP</p>
-              </div>
-              <div className="col-md-2 d-flex align-items-center pt-3">
-                <p className="fw-bold">{product.count * product.price} EGP</p>
-              </div>
+              </>
+            );
+          })
+        ) : (
+          // if there are no products in cart
+          <div className="d-flex justify-content-center">
+            <div>
+              <p className={styles.empty}>Cart is empty</p>
             </div>
-          );
-        })}
+          </div>
+        )}
 
         {/* check out section */}
         <div className={`row mx-auto ${styles.checkout} `}>

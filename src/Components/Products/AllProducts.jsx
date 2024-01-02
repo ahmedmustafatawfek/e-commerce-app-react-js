@@ -35,7 +35,7 @@ export default function AllProducts() {
               <i className={`fa fa-star ${styles.star}`}></i>
               <i className={`fa fa-star ${styles.star}`}></i>
               <i className={`fa fa-star ${styles.star}`}></i>
-              <i class={`fa-solid fa-star-half-stroke me-2 ${styles.star}`}></i>
+              <i className={`fa-solid fa-star-half-stroke me-2 ${styles.star}`}></i>
             </h5>
 
             <h3 className={`${styles.title} ms-3`}>

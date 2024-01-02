@@ -17,12 +17,11 @@ export default function FeatureProducts() {
 
   // USING USEQUERY
   let { data, isLoading } = useQuery("featureProducts", getProduct);
-  console.log(data, data?.data?.metadata?.limit);
 
   // DISPLAY PRODUCTS FUNTION
   function displayProducts() {
     let limitedItems = data?.data?.data.slice(0, limit);
-    console.log("limited items", limitedItems);
+    // console.log("limited items", limitedItems);
     return limitedItems.map((ele) => (
       <div className={`col-md-4 mb-5 px-4`} key={ele.id}>
         <div className={`${styles.product}`}>
@@ -37,7 +36,7 @@ export default function FeatureProducts() {
               <i className={`fa fa-star ${styles.star}`}></i>
               <i className={`fa fa-star ${styles.star}`}></i>
               <i className={`fa fa-star ${styles.star}`}></i>
-              <i class={`fa-solid fa-star-half-stroke me-2 ${styles.star}`}></i>
+              <i className={`fa-solid fa-star-half-stroke me-2 ${styles.star}`}></i>
             </h5>
 
             <h3 className={`${styles.title}`}>

@@ -132,7 +132,7 @@ export default function Details() {
                     <i className={`fa fa-star ${styles.star}`}></i>
                     <i className={`fa fa-star ${styles.star}`}></i>
                     <i
-                      class={`fa-solid fa-star-half-stroke me-2 ${styles.star}`}
+                      className={`fa-solid fa-star-half-stroke me-2 ${styles.star}`}
                     ></i>
                     <span
                       className={styles.reviews}
@@ -157,7 +157,7 @@ export default function Details() {
                       )}
                     </div>
                     <p className="my-3">
-                      <i class="fa-regular fa-eye"></i> {details.sold} people
+                      <i className="fa-regular fa-eye"></i> {details.sold} people
                       are looking at this product
                     </p>
                   </div>
@@ -165,13 +165,13 @@ export default function Details() {
                   <div className={`${styles.quantity} mt-4`}>
                     <input
                       type="button"
-                      value="-"
+                      defaultValue="-"
                       className={styles.decrease}
                     />
-                    <input type="text" value="1" className="w-100" />
+                    <input type="text" defaultValue="1" className="w-100" />
                     <input
                       type="button"
-                      value="+"
+                      defaultValue="+"
                       className={styles.increase}
                     />
                   </div>
@@ -183,11 +183,11 @@ export default function Details() {
                   </button>
 
                   <p className={`d-inline ms-2 me-5 ${styles.fav}`}>
-                    <i class="fa-regular fa-heart"></i> Wishlist
+                    <i className="fa-regular fa-heart"></i> Wishlist
                   </p>
 
                   <p className={`d-inline ${styles.fav}`}>
-                    <i class="fa-solid fa-share-nodes"></i> Share
+                    <i className="fa-solid fa-share-nodes"></i> Share
                   </p>
                 </div>
               </div>

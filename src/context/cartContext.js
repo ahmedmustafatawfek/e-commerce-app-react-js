@@ -20,9 +20,15 @@ function getCart() {
     }).then((res) => res)
 }
 
+function deleteProductFromCart(id) {
+    return axios.delete(`https://ecommerce.routemisr.com/api/v1/cart/${id}`, {
+        headers
+    }).then((res) => res)
+}
+
 export default function CartContextProvider(props) {
 
-    return <CartContext.Provider value={{ addToCart, getCart }}>
+    return <CartContext.Provider value={{ addToCart, getCart, deleteProductFromCart }}>
         {props.children}
     </CartContext.Provider>
 }

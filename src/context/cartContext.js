@@ -26,9 +26,16 @@ function deleteProductFromCart(id) {
     }).then((res) => res)
 }
 
+function updateProductQuantity(id, quantity) {
+    return axios.put(`https://ecommerce.routemisr.com/api/v1/cart/${id}`, { "count": quantity }, {
+        headers
+    }).then((res) => res)
+}
+
+
 export default function CartContextProvider(props) {
 
-    return <CartContext.Provider value={{ addToCart, getCart, deleteProductFromCart }}>
+    return <CartContext.Provider value={{ addToCart, getCart, deleteProductFromCart, updateProductQuantity }}>
         {props.children}
     </CartContext.Provider>
 }

@@ -2,21 +2,25 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import shipping from "../../images/Elements/Cart/shipping.png";
 import { CartContext } from "../../context/cartContext";
+import { LineWave } from "react-loader-spinner";
 
 export default function Cart() {
   // use state
   const [cartDetails, setCartDetails] = useState({});
   const [totalPrice, setTotalPrice] = useState();
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // use context
-  let { getCart, deleteProductFromCart } = useContext(CartContext);
+  let { getCart, deleteProductFromCart, updateProductQuantity } =
+    useContext(CartContext);
 
   async function getCartDetails() {
     let { data } = await getCart();
     setCartDetails(data);
     setProducts(data?.data.products);
     finalPrice();
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -42,8 +46,22 @@ export default function Cart() {
 
   // delete product from cart
   async function deleteItem(id) {
+    setIsLoading(true);
     let { data } = await deleteProductFromCart(id);
     setCartDetails(data);
+    finalPrice();
+    setProducts(data?.data.products);
+    setIsLoading(false);
+  }
+
+  // update product quantity
+  async function updateItemQuantity(id, quantity) {
+    let { data } = await updateProductQuantity(id, quantity);
+    data.data.products.map(
+      (ele) => ele.count === 0 && deleteItem(ele.product._id)
+    );
+    setCartDetails(data);
+    finalPrice();
     setProducts(data?.data.products);
   }
 
@@ -61,28 +79,44 @@ export default function Cart() {
 
       <div className={`${styles.cartTable} container`}>
         {/* row of content  */}
-        {products.length ? (
-          // if products array conatins products
-          products.map((product, index) => {
-            return (
-              <>
-                {/* head of cart table */}
-                <div className={`row ${styles.row}`}>
-                  <div className="col-md-6 d-flex">
-                    <p className="me-auto">product</p>
-                  </div>
-                  <div className="col-md-2 d-flex">
-                    <p className="">Quantity</p>
-                  </div>
-                  <div className="col-md-2 d-flex">
-                    <p className="">Price</p>
-                  </div>
-                  <div className="col-md-2 d-flex">
-                    <p className="">Subtotal</p>
-                  </div>
-                </div>
+        {/* head of cart table */}
+        <div className={`row ${styles.row}`}>
+          <div className="col-md-6 d-flex">
+            <p className="me-auto">product</p>
+          </div>
+          <div className="col-md-2 d-flex">
+            <p className="">Quantity</p>
+          </div>
+          <div className="col-md-2 d-flex">
+            <p className="">Price</p>
+          </div>
+          <div className="col-md-2 d-flex">
+            <p className="">Subtotal</p>
+          </div>
+        </div>
 
-                <div key={index} className={`row ${styles.row}`}>
+        {/* body of the cart table */}
+        {isLoading ? (
+          <LineWave
+            height="100"
+            width="100"
+            color="#f15d76"
+            ariaLabel="line-wave"
+            wrapperStyle={{}}
+            wrapperClass={
+              "justify-content-center  align-items-center mt-5 pt-5"
+            }
+            visible={true}
+            firstLineColor=""
+            middleLineColor=""
+            lastLineColor=""
+          />
+        ) : (
+          <>
+            {products.length ? (
+              // if products array conatins products
+              products.map((product, index) => (
+                <div key={product.product._id} className={`row ${styles.row}`}>
                   {/* first col */}
                   <div className="col-md-6 d-flex align-items-center p-0">
                     <img
@@ -108,11 +142,29 @@ export default function Cart() {
                   {/* second col */}
                   <div className="col-md-2 d-flex align-items-center px-0">
                     <div className={`d-flex p-0 ${styles.quantityBtn}`}>
-                      <p className={`mb-0 py-2 ps-2`} role="button">
+                      <p
+                        className={`mb-0 py-2 ps-2`}
+                        role="button"
+                        onClick={() =>
+                          updateItemQuantity(
+                            product.product._id,
+                            product.count - 1
+                          )
+                        }
+                      >
                         -
                       </p>
                       <p className={`mb-0 py-2 px-3`}>{product.count}</p>
-                      <p className={`mb-0 py-2 pe-2`} role="button">
+                      <p
+                        className={`mb-0 py-2 pe-2`}
+                        role="button"
+                        onClick={() =>
+                          updateItemQuantity(
+                            product.product._id,
+                            product.count + 1
+                          )
+                        }
+                      >
                         +
                       </p>
                     </div>
@@ -126,16 +178,16 @@ export default function Cart() {
                     </p>
                   </div>
                 </div>
-              </>
-            );
-          })
-        ) : (
-          // if there are no products in cart
-          <div className="d-flex justify-content-center">
-            <div>
-              <p className={styles.empty}>Cart is empty</p>
-            </div>
-          </div>
+              ))
+            ) : (
+              // if there are no products in cart
+              <div className="d-flex justify-content-center">
+                <div>
+                  <p className={styles.empty}>Cart is empty</p>
+                </div>
+              </div>
+            )}
+          </>
         )}
 
         {/* check out section */}

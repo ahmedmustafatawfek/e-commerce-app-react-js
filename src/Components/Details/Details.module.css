@@ -27,8 +27,10 @@
 
 .quantity {
   width: 100%;
+  position: relative;
 }
-.quantity input {
+
+.inputValue {
   text-align: center;
   border-radius: 0.5rem;
   padding-block: 0.5rem;
@@ -37,13 +39,20 @@
 }
 
 .decrease {
+  text-align: center;
   position: absolute;
-  width: 5%;
+  left: 0;
+  width: 5rem;
+  padding-block: 0.5rem;
+  border-radius: 0.5rem;
 }
 .increase {
+  text-align: center;
   position: absolute;
-  right: 13%;
-  width: 5%;
+  right: 0;
+  width: 5rem;
+  padding-block: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .cartbtn {
@@ -85,12 +94,15 @@
 }
 
 /* discount classes */
-.oldPrice{
-    text-decoration: line-through;
-    color:#6c757d;
-    font-size: .9rem;
+.oldPrice {
+  text-decoration: line-through;
+  color: #6c757d;
+  font-size: 0.9rem;
 }
-.afterDiscount{
-    font-size: 1.5rem;
-    font-weight: 900;
+.afterDiscount {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.inputValue {
 }

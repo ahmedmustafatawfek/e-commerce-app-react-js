@@ -11,11 +11,12 @@ import toast from "react-hot-toast";
 // main function component
 export default function Details() {
   // use context
-  let { addToCart } = useContext(CartContext);
+  let { addToCart, updateProductQuantity } = useContext(CartContext);
 
   // use state
   const [isLoading, setIsLoading] = useState(true);
   const [details, setDetails] = useState({});
+  const [value, setValue] = useState(1);
 
   // setting for slick slider
   const settings = {
@@ -56,8 +57,9 @@ export default function Details() {
   }
 
   // function which call main addToCart() from CartContext
-  async function addCart(id) {
+  async function addCart(id,value) {
     let res = await addToCart(id);
+    updateProductQuantity(id,value)
     console.log(res);
 
     // toast notification for adding item to cart or not
@@ -157,26 +159,34 @@ export default function Details() {
                       )}
                     </div>
                     <p className="my-3">
-                      <i className="fa-regular fa-eye"></i> {details.sold} people
-                      are looking at this product
+                      <i className="fa-regular fa-eye"></i> {details.sold}{" "}
+                      people are looking at this product
                     </p>
                   </div>
 
-                  <div className={`${styles.quantity} mt-4`}>
-                    <input
-                      type="button"
-                      defaultValue="-"
+                  <div className={`${styles.quantity} p-0  mt-4`}>
+                    <p
+                      role="button"
                       className={styles.decrease}
-                    />
-                    <input type="text" defaultValue="1" className="w-100" />
-                    <input
-                      type="button"
-                      defaultValue="+"
+                      onClick={() => {
+                        value !== 1 && setValue(value - 1);
+                      }}
+                    >
+                      -
+                    </p>
+                    <p
+                      role="button"
                       className={styles.increase}
-                    />
+                      onClick={() => {
+                        setValue(value + 1);
+                      }}
+                    >
+                      +
+                    </p>
+                    <p className={styles.inputValue}>{value}</p>
                   </div>
                   <button
-                    onClick={() => addCart(details.id)}
+                    onClick={() => addCart(details.id,value)}
                     className={` w-100 ${styles.cartbtn} `}
                   >
                     Add To Cart

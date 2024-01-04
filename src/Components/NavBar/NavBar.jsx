@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import logo from "../../images/eShopify-removebg-preview.png";
@@ -6,8 +6,12 @@ import profile from "../../images/user.png";
 import cart from "../../images/cart.png";
 import logout from "../../images/logout.png";
 import { tokenContext } from "../../context/tokenContext";
+import { CartContext } from "../../context/cartContext";
+
 
 export default function NavBar() {
+  const { cartCount } = useContext(CartContext);
+
   let { token, setToken } = useContext(tokenContext);
   let navigate = useNavigate();
   function logOut() {
@@ -115,7 +119,14 @@ export default function NavBar() {
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link text-black" to="Cart">
-                          <img className={styles.icon} src={cart} alt="cart" />
+                          <div className="position-relative">
+                            <img
+                              className={styles.icon}
+                              src={cart}
+                              alt="cart"
+                            />
+                            <span className={styles.popUp}>{cartCount}</span>
+                          </div>
                         </Link>
                       </li>
                       <li className="nav-item">

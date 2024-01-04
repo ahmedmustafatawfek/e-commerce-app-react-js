@@ -4,7 +4,7 @@
   top: 4.5%;
   z-index: 5;
   overflow: hidden;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .navBarBg {
@@ -13,17 +13,26 @@
 
 .logo {
   width: 15%;
-
 }
 
 .icon {
   width: 85%;
 }
-.firstMenu{
-  margin-inline-start:4rem;
-
+.firstMenu {
+  margin-inline-start: 4rem;
 }
 
-.lastMenu{
+.lastMenu {
   margin-inline-start: 10rem;
+}
+
+.popUp {
+  position: absolute;
+  left: 60%;
+  top: -25%;
+  padding-inline: .3rem;
+  font-size: .65rem;
+  border-radius: 50%;
+  color: white;
+  background-color: black;
 }

@@ -12,7 +12,7 @@ export default function Cart() {
   const [isLoading, setIsLoading] = useState(true);
 
   // use context
-  let { getCart, deleteProductFromCart, updateProductQuantity } =
+  let { getCart, deleteProductFromCart, updateProductQuantity, setCartCount } =
     useContext(CartContext);
 
   async function getCartDetails() {
@@ -52,6 +52,11 @@ export default function Cart() {
     finalPrice();
     setProducts(data?.data.products);
     setIsLoading(false);
+
+    // Update cartCount in localStorage
+    const updatedCartCount = data?.data.products.length;
+    setCartCount(updatedCartCount);
+    localStorage.setItem("cartCount", updatedCartCount.toString());
   }
 
   // update product quantity

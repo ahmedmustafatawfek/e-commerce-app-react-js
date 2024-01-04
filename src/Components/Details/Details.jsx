@@ -11,7 +11,8 @@ import toast from "react-hot-toast";
 // main function component
 export default function Details() {
   // use context
-  let { addToCart, updateProductQuantity } = useContext(CartContext);
+  let { addToCart, updateProductQuantity, setCartCount, cartCount } =
+    useContext(CartContext);
 
   // use state
   const [isLoading, setIsLoading] = useState(true);
@@ -57,13 +58,17 @@ export default function Details() {
   }
 
   // function which call main addToCart() from CartContext
-  async function addCart(id,value) {
+  async function addCart(id, value) {
     let res = await addToCart(id);
-    updateProductQuantity(id,value)
+    updateProductQuantity(id, value);
+
+    let count = res.data.numOfCartItems;
+    updateCounter(count);
     console.log(res);
 
     // toast notification for adding item to cart or not
     if (res.data.status === "success") {
+      // toast settings
       toast("product added successfully", {
         duration: 4500,
         position: "top-center",
@@ -79,6 +84,15 @@ export default function Details() {
       });
     }
   }
+
+  function updateCounter(count) {
+    setCartCount(count);
+    localStorage.setItem("cartCount", count.toString());
+  }
+
+  useEffect(() => {
+    localStorage.setItem("cartCount", cartCount.toString());
+  }, [cartCount]);
 
   // rendering the component
   return (
@@ -186,7 +200,7 @@ export default function Details() {
                     <p className={styles.inputValue}>{value}</p>
                   </div>
                   <button
-                    onClick={() => addCart(details.id,value)}
+                    onClick={() => addCart(details.id, value)}
                     className={` w-100 ${styles.cartbtn} `}
                   >
                     Add To Cart

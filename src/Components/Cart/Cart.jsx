@@ -3,6 +3,7 @@ import styles from "./Cart.module.css";
 import shipping from "../../images/Elements/Cart/shipping.png";
 import { CartContext } from "../../context/cartContext";
 import { LineWave } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   // use state
@@ -282,9 +283,7 @@ export default function Cart() {
               </div>
 
               {/* checkout button */}
-              <button className={`btn w-100 mt-4 mb-1 ${styles.checkoutBtn}`}>
-                Checkout
-              </button>
+                <Link to="checkout" className={`${styles.checkBtn} btn w-100 mt-4 mb-1 ${styles.checkoutBtn}`} > Checkout </Link>
             </div>
           </div>
         </div>

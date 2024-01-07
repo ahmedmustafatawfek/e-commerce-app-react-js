@@ -36,10 +36,15 @@
   font-weight: 700;
   padding-inline-start: 0.3rem;
 }
+.alert{
+  background-color: #ebb6b4;
+  color: white;
+  border: unset;
+}
 
 .form-control:focus {
   border: unset;
-  box-shadow: 0 0 0 0.25rem #cff4fc;
+  box-shadow: 0 0 0 0.25rem #ebb6b4;
 }
 
 input:focus-visible {

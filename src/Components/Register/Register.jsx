@@ -81,7 +81,7 @@ export default function Register() {
             />
 
             {formik.errors.name && formik.touched.name ? (
-              <div className="alert alert-info">{formik.errors.name}</div>
+              <div className="alert">{formik.errors.name}</div>
             ) : (
               ""
             )}
@@ -100,7 +100,7 @@ export default function Register() {
               onBlur={formik.handleBlur}
             />
             {formik.errors.email && formik.touched.email ? (
-              <div className="alert alert-info">{formik.errors.email}</div>
+              <div className="alert">{formik.errors.email}</div>
             ) : (
               ""
             )}
@@ -119,7 +119,7 @@ export default function Register() {
               onBlur={formik.handleBlur}
             />
             {formik.errors.password && formik.touched.password ? (
-              <div className="alert alert-info">{formik.errors.password}</div>
+              <div className="alert">{formik.errors.password}</div>
             ) : (
               ""
             )}
@@ -139,7 +139,7 @@ export default function Register() {
             />
 
             {formik.errors.rePassword && formik.touched.rePassword ? (
-              <div className="alert alert-info">{formik.errors.rePassword}</div>
+              <div className="alert">{formik.errors.rePassword}</div>
             ) : (
               ""
             )}
@@ -158,7 +158,7 @@ export default function Register() {
               onBlur={formik.handleBlur}
             />
             {formik.errors.phone && formik.touched.phone ? (
-              <div className="alert alert-info">{formik.errors.phone}</div>
+              <div className="alert">{formik.errors.phone}</div>
             ) : (
               ""
             )}

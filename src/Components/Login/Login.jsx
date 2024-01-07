@@ -73,7 +73,7 @@ export default function Login() {
               onBlur={formik.handleBlur}
             />
             {formik.errors.email && formik.touched.email ? (
-              <div className="alert alert-info">{formik.errors.email}</div>
+              <div className="alert">{formik.errors.email}</div>
             ) : (
               ""
             )}
@@ -92,7 +92,7 @@ export default function Login() {
               onBlur={formik.handleBlur}
             />
             {formik.errors.password && formik.touched.password ? (
-              <div className="alert alert-info">{formik.errors.password}</div>
+              <div className="alert">{formik.errors.password}</div>
             ) : (
               ""
             )}

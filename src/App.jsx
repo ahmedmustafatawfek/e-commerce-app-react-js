@@ -14,6 +14,7 @@ import { useContext, useEffect } from "react";
 import { tokenContext } from "./context/tokenContext";
 import ProtectedRoutes from "./Components/ProtectedRoutes/ProtectedRoutes";
 import ProtectedSigning from "./Components/ProtectedSigning/ProtectedSigning";
+import Checkout from './Components/Checkout/Checkout';
 
 let routers = createBrowserRouter([
   {
@@ -26,7 +27,9 @@ let routers = createBrowserRouter([
       { path: "cart", element:<ProtectedRoutes> <Cart /> </ProtectedRoutes> },
       { path: "profile", element:<ProtectedRoutes> <Profile /> </ProtectedRoutes>},
       { path: "details/:id", element:<ProtectedRoutes> <Details /> </ProtectedRoutes>},
+      { path: "cart/checkout", element:<ProtectedRoutes> <Checkout /> </ProtectedRoutes>},
       
+
       { path: "register", element:<ProtectedSigning>  <Register /> </ProtectedSigning> },
       { path: "login", element:<ProtectedSigning> <Login /> </ProtectedSigning>  },
 

@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin-block-start: 9rem;
+}
+
+.header {
+  width: 100%;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.subHeader {
+  font-size: 1.5rem;
+  margin-block-start: 4rem;
+  margin-block-end: 1rem;
+  margin-inline: auto;
+}
+
+.subHeader::after {
+  content: "";
+  display: block;
+  border: 0.1rem solid #ADAFB0;
+  width: 25%;
+  margin-block-start: 0.5rem;
+}
+
+.shippingCar {
+  margin-block: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.payBtn:hover {
+  color: white !important;
+  background-color: #ebb6b4 !important;
+}

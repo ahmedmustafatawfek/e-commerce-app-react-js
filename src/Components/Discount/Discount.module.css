@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 .text {
     margin: 0 !important;
     text-align: center;

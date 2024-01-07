@@ -87,6 +87,11 @@
   background-color: #ebb6b4 !important;
 }
 
+.checkBtn{
+  color: white;
+  text-decoration: unset;
+}
+
 .empty{
   margin-block-start: 5rem;
   margin-block-end: 4rem;

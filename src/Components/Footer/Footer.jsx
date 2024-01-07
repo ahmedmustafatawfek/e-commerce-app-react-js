@@ -1,19 +1,19 @@
 import React from "react";
 import styles from "./Footer.module.css";
-import logo from "../../images/Vector.png";
 import { Link } from "react-router-dom";
+import logo from "../../images/eShopify-removebg-preview.png";
 
 export default function Footer() {
   return (
     <>
-      <div className="container mt-5">
+      <div className="container ">
         <div className="row mb-4">
           <div className="col-md-6">
             <div className="d-flex align-items-center">
               <img src={logo} alt="logo" className={styles.logo} />
 
-              <Link className="navbar-brand fs-4 fw-bold ps-1" to="/">
-                SHOPR
+              <Link className="navbar-brand fs-5 fw-bold" to="/">
+                ESHOPIFY
               </Link>
             </div>
             <p className={`mt-3 ${styles.p}`}>
@@ -74,7 +74,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
     </>
   );
 }

@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import shipping from "../../images/Elements/Cart/shipping.png";
-import { CartContext } from "../../context/cartContext";
+import { CartContext, handleError } from "../../context/cartContext";
 import { LineWave } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+
 
 export default function Cart() {
   // use state
@@ -11,17 +12,31 @@ export default function Cart() {
   const [totalPrice, setTotalPrice] = useState();
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [updatedCartCount, setUpdatedCartCount] = useState(0);
 
   // use context
-  let { getCart, deleteProductFromCart, updateProductQuantity, setCartCount } =
-    useContext(CartContext);
+  let {
+    getCart,
+    deleteProductFromCart,
+    updateProductQuantity,
+    setCartCount,
+    cartId,
+  } = useContext(CartContext);
 
   async function getCartDetails() {
-    let { data } = await getCart();
-    setCartDetails(data);
-    setProducts(data?.data.products);
-    finalPrice();
-    setIsLoading(false);
+    try {
+      let { data } = await getCart();
+      if (data) {
+        console.log(data);
+        setCartDetails(data);
+        setProducts(data?.data?.products);
+        finalPrice();
+        setIsLoading(false);
+        console.log(cartId);
+      }
+    } catch {
+      setIsLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -55,9 +70,13 @@ export default function Cart() {
     setIsLoading(false);
 
     // Update cartCount in localStorage
-    const updatedCartCount = data?.data.products.length;
-    setCartCount(updatedCartCount);
-    localStorage.setItem("cartCount", updatedCartCount.toString());
+    let updateCartCount = data?.data.products.length;
+    setUpdatedCartCount(updateCartCount);
+  }
+
+  // handle error after payment
+  function handlePaymentError(updatedCartCount) {
+    handleError(setCartCount, updatedCartCount);
   }
 
   // update product quantity
@@ -186,10 +205,10 @@ export default function Cart() {
                 </div>
               ))
             ) : (
-              // if there are no products in cart
               <div className="d-flex justify-content-center">
                 <div>
                   <p className={styles.empty}>Cart is empty</p>
+                  {handlePaymentError(updatedCartCount)}
                 </div>
               </div>
             )}
@@ -283,7 +302,12 @@ export default function Cart() {
               </div>
 
               {/* checkout button */}
-                <Link to="checkout" className={`${styles.checkBtn} btn w-100 mt-4 mb-1 ${styles.checkoutBtn}`} > Checkout </Link>
+              <Link
+                to="checkout"
+                className={`${styles.checkBtn} btn w-100 mt-4 mb-1 ${styles.checkoutBtn}`}
+              >
+                Checkout{" "}
+              </Link>
             </div>
           </div>
         </div>

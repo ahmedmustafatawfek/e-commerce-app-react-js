@@ -15,6 +15,7 @@ import { tokenContext } from "./context/tokenContext";
 import ProtectedRoutes from "./Components/ProtectedRoutes/ProtectedRoutes";
 import ProtectedSigning from "./Components/ProtectedSigning/ProtectedSigning";
 import Checkout from './Components/Checkout/Checkout';
+import Allorders from './Components/Allorders/Allorders';
 
 let routers = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ let routers = createBrowserRouter([
       { path: "profile", element:<ProtectedRoutes> <Profile /> </ProtectedRoutes>},
       { path: "details/:id", element:<ProtectedRoutes> <Details /> </ProtectedRoutes>},
       { path: "cart/checkout", element:<ProtectedRoutes> <Checkout /> </ProtectedRoutes>},
+      { path: "allorders", element:<ProtectedRoutes> <Allorders /> </ProtectedRoutes>},
       
 
       { path: "register", element:<ProtectedSigning>  <Register /> </ProtectedSigning> },

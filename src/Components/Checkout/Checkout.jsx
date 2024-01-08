@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Checkout.module.css";
 import { useFormik } from "formik";
 import shipping from "../../images/Elements/Cart/shipping.png";
 import * as Yup from "yup";
-import axios from "axios";
+// import axios from "axios";
+import { CartContext } from "../../context/cartContext";
 
 export default function Checkout() {
   // const [isLoading, setIsLoading] = useState(false);
-  const [apiError, setApiError] = useState("");
+  // const [apiError, setApiError] = useState("");
+
+  // use context
+  let { onlinePayment, getCart, setCartId,clearCartLocalStorage } = useContext(CartContext);
 
   let validationSchema = Yup.object({
     name: Yup.string()
@@ -23,6 +27,7 @@ export default function Checkout() {
 
   let formik = useFormik({
     initialValues: {
+      // details: "",
       name: "",
       phone: "",
       city: "",
@@ -31,8 +36,18 @@ export default function Checkout() {
     onSubmit: (values) => payNow(values),
   });
 
-  function payNow(values) {
-    console.log(values);
+  async function payNow(values) {
+    try {
+      let { data } = await onlinePayment(values);
+      console.log(data);
+      window.location.href = data.session.url;
+  
+    } catch (error) {
+      // console.error("Error processing payment:", error);
+  
+      // Clear cart-related data from localStorage on error
+      clearCartLocalStorage();
+    }
   }
 
   return (
@@ -92,7 +107,7 @@ export default function Checkout() {
             )}
           </div>
 
-          {/* Phone input */}
+          {/* City input */}
           <div className="form-group mb-4">
             <label htmlFor="city">City</label>
             <input
@@ -111,7 +126,9 @@ export default function Checkout() {
             )}
           </div>
 
-          <button className={`btn ${styles.payBtn} mb-5`}>Pay Now</button>
+          <button className={`btn ${styles.payBtn} mb-5`} type="submit">
+            Pay Now
+          </button>
         </form>
       </div>
     </>

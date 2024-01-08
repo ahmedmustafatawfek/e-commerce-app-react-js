@@ -5,11 +5,12 @@ import * as Yup from "yup";
 import axios from "axios";
 import styles from "./Login.module.css";
 import { tokenContext } from "../../context/tokenContext";
+import { jwtDecode } from "jwt-decode";
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState("");
-  let { setToken } = useContext(tokenContext);
+  let { token, setToken } = useContext(tokenContext);
   let navigate = useNavigate();
 
   let validationSchema = Yup.object({
@@ -19,23 +20,31 @@ export default function Login() {
       .required("password is required"),
   });
 
-  // CALL API FUNCTION , SET LOADER AND NAVIGATE TO HOME PAGE
+  // CALL API FUNCTION, SET LOADER, AND NAVIGATE TO HOME PAGE
   async function login(values) {
     setApiError("");
     setIsLoading(true);
-    console.log(values);
-    let { data } = await axios
-      .post(`https://ecommerce.routemisr.com/api/v1/auth/signin`, values)
-      .catch((err) => {
+    try {
+      let { data } = await axios.post(
+        `https://ecommerce.routemisr.com/api/v1/auth/signin`,
+        values
+      );
+      if (data.message === "success") {
         setIsLoading(false);
-        setApiError(err.response.data.message);
-      });
-    console.log(data);
-    if (data.message == "success") {
+        localStorage.setItem("userToken", data.token);
+        setToken(data.token);
+
+        // decode token to extract user id and store it in localStorage
+        const decoded = jwtDecode(data?.token);
+        console.log(decoded);
+        const userId = decoded.id;
+        localStorage.setItem("userId", userId);
+
+        navigate("/");
+      }
+    } catch (err) {
       setIsLoading(false);
-      localStorage.setItem('userToken',data.token)
-      setToken(data.token)
-      navigate("/");
+      setApiError(err.response?.data?.message || "Something went wrong!");
     }
   }
 

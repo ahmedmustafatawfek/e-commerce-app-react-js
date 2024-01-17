@@ -1,1 +1,32 @@
-.Allorders {}
+.hero {
+  margin-block-start: 1rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+}
+
+.hero p {
+  font-size: 0.8rem;
+}
+
+.cartTable .row {
+  width: 85%;
+  margin-inline: auto;
+  border-bottom: 0.1rem solid rgb(220, 220, 220);
+}
+
+.cartItem {
+  padding-block: 1rem;
+  width: 17%;
+}
+
+
+.empty{
+  margin-block-start: 5rem;
+  margin-block-end: 4rem;
+  font-size: 2rem;
+}
+
+

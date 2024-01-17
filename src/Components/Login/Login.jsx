@@ -7,10 +7,12 @@ import styles from "./Login.module.css";
 import { tokenContext } from "../../context/tokenContext";
 import { jwtDecode } from "jwt-decode";
 
+
+// main function
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState("");
-  let { token, setToken } = useContext(tokenContext);
+  let { setToken } = useContext(tokenContext);
   let navigate = useNavigate();
 
   let validationSchema = Yup.object({

@@ -1,17 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styles from "./Checkout.module.css";
 import { useFormik } from "formik";
 import shipping from "../../images/Elements/Cart/shipping.png";
 import * as Yup from "yup";
-// import axios from "axios";
 import { CartContext } from "../../context/cartContext";
 
 export default function Checkout() {
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [apiError, setApiError] = useState("");
 
   // use context
-  let { onlinePayment, getCart, setCartId,clearCartLocalStorage } = useContext(CartContext);
+  let { onlinePayment } = useContext(CartContext);
 
   let validationSchema = Yup.object({
     name: Yup.string()
@@ -27,7 +24,6 @@ export default function Checkout() {
 
   let formik = useFormik({
     initialValues: {
-      // details: "",
       name: "",
       phone: "",
       city: "",
@@ -41,14 +37,12 @@ export default function Checkout() {
       let { data } = await onlinePayment(values);
       console.log(data);
       window.location.href = data.session.url;
-  
+      // window.open(data.session.url, "_blank");
     } catch (error) {
       // console.error("Error processing payment:", error);
-  
-      // Clear cart-related data from localStorage on error
-      clearCartLocalStorage();
     }
   }
+
 
   return (
     <>
@@ -62,7 +56,7 @@ export default function Checkout() {
           <img
             src={shipping}
             alt="shipping processing"
-            className={`w-25 mb-3`}
+            className={`w-25`}
           />
         </div>
         <h6 className={`w-75 ${styles.subHeader}`}>Contact infromation</h6>
@@ -70,7 +64,7 @@ export default function Checkout() {
         <form className="w-75 m-auto" onSubmit={formik.handleSubmit}>
           {/* name input */}
           <div className="form-group mb-2">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Full Name</label>
             <input
               type="text"
               className="form-control my-2"
@@ -90,7 +84,7 @@ export default function Checkout() {
 
           {/* Phone input */}
           <div className="form-group mb-4">
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="phone">Phone Number</label>
             <input
               type="tel"
               className="form-control my-2"
@@ -109,7 +103,7 @@ export default function Checkout() {
 
           {/* City input */}
           <div className="form-group mb-4">
-            <label htmlFor="city">City</label>
+            <label htmlFor="city">Street address</label>
             <input
               type="text"
               className="form-control my-2"
@@ -127,7 +121,7 @@ export default function Checkout() {
           </div>
 
           <button className={`btn ${styles.payBtn} mb-5`} type="submit">
-            Pay Now
+            Place Order
           </button>
         </form>
       </div>

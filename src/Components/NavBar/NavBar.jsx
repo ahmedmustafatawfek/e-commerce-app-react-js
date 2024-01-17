@@ -95,9 +95,9 @@ export default function NavBar() {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link text-black" to="categories">
+                        <Link className="nav-link text-black" to="contactus">
                           <div className="d-flex align-items-center">
-                            <p className="m-0">Categories</p>
+                            <p className="m-0">Contact us</p>
                             <i className={`fa-solid fa-sort-down ms-2`}></i>
                           </div>
                         </Link>

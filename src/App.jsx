@@ -3,7 +3,6 @@ import "./App.css";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
 import Products from "./Components/Products/Products";
-import Categories from "./Components/Categories/Categories";
 import Cart from "./Components/Cart/Cart";
 import Profile from "./Components/Profile/Profile";
 import Details from "./Components/Details/Details";
@@ -16,6 +15,7 @@ import ProtectedRoutes from "./Components/ProtectedRoutes/ProtectedRoutes";
 import ProtectedSigning from "./Components/ProtectedSigning/ProtectedSigning";
 import Checkout from './Components/Checkout/Checkout';
 import Allorders from './Components/Allorders/Allorders';
+import Contactus from './Components/Contactus/Contactus';
 
 let routers = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ let routers = createBrowserRouter([
     children: [
       { index: true, element:<ProtectedRoutes>  <Home /> </ProtectedRoutes> },
       { path: "products", element:<ProtectedRoutes> <Products /> </ProtectedRoutes>  },
-      { path: "categories", element:<ProtectedRoutes> <Categories /> </ProtectedRoutes>  },
+      { path: "contactus", element:<ProtectedRoutes> <Contactus /> </ProtectedRoutes>  },
       { path: "cart", element:<ProtectedRoutes> <Cart /> </ProtectedRoutes> },
       { path: "profile", element:<ProtectedRoutes> <Profile /> </ProtectedRoutes>},
       { path: "details/:id", element:<ProtectedRoutes> <Details /> </ProtectedRoutes>},

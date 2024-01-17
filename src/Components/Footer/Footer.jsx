@@ -6,7 +6,7 @@ import logo from "../../images/eShopify-removebg-preview.png";
 export default function Footer() {
   return (
     <>
-      <div className="container ">
+      <div className="container mt-5">
         <div className="row mb-4">
           <div className="col-md-6">
             <div className="d-flex align-items-center">

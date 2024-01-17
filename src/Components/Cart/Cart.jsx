@@ -5,7 +5,6 @@ import { CartContext, handleError } from "../../context/cartContext";
 import { LineWave } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 
-
 export default function Cart() {
   // use state
   const [cartDetails, setCartDetails] = useState({});
@@ -194,9 +193,11 @@ export default function Cart() {
                       </p>
                     </div>
                   </div>
+                  {/* third col */}
                   <div className="col-md-2 d-flex align-items-center px-0 pt-3">
                     <p className="fw-bold">{product.price} EGP</p>
                   </div>
+                  {/* forth col */}
                   <div className="col-md-2 d-flex align-items-center pt-3">
                     <p className="fw-bold">
                       {product.count * product.price} EGP

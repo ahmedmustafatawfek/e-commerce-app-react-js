@@ -43,7 +43,7 @@
 }
 
 .form {
-  background-color: #ececec;
+  background-color: white;
   position: absolute;
   top: 90%;
   left: 50%;
@@ -52,24 +52,24 @@
 }
 form input {
   border-radius: 0.5rem;
-  border: unset;
+  border: 0.1rem solid #c3c3c3;
 }
 form textarea {
   resize: none;
   border-radius: 0.5rem;
-  border: unset;
+  border: 0.1rem solid #c3c3c3;
 }
 
-.Questions{
+.Questions {
   margin-top: 40rem;
-  background-color: #ececec;
+  /* background-color: #ececec; */
 }
 
-.question{
-  border-bottom: .1rem solid gray;
+.question {
+  border-bottom: 0.1rem solid gray;
   padding-block: 1rem;
 }
 
-.question p{
+.question p {
   margin: 0;
 }

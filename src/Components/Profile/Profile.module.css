@@ -1,1 +1,16 @@
-.Profile {}
+.background {
+  height: 45vh;
+  width: 100%;
+  position: relative;
+}
+.hero {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.hero h2 {
+  margin-block-end: 1.5rem;
+  font-size: 2.5rem;
+}

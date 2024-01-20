@@ -15,6 +15,8 @@ export default function Contactus() {
         </p>
       </div>
     </div>
+    
+    {/* form section */}
     <section className="w-100 position-relative">
       <img src={mapImg} alt="maps" className="w-100" />
       <span className={styles.Pin}></span>
@@ -61,6 +63,7 @@ export default function Contactus() {
       </div>
     </section>
 
+    {/* question section  */}
     <section className={`container px-5 py-4 ${styles.Questions}`}>
       <h4 className="fs-2 py-2">Frequently asked</h4>
       <div className={styles.question}>

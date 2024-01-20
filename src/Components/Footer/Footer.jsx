@@ -17,7 +17,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className={`mt-3 ${styles.p}`}>
-              Experience the future of e-commerce design with SHOPR
+              Experience the future of e-commerce design with ESHOPIFY
             </p>
             <div className={`${styles.social} d-flex align-items-center my-4`}>
               <Link className="me-4" to="https://www.facebook.com">
@@ -37,7 +37,7 @@ export default function Footer() {
               </Link>
             </div>
 
-            <p className={styles.copyright}>© 2023 SHOPR</p>
+            <p className={styles.copyright}>© 2023 ESHOPIFY</p>
           </div>
           <div className="col-md-6">
             <div className="row">

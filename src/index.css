@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Maven+Pro:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
+* {
+  font-family: "Space Grotesk", sans-serif;
+}
 .btn {
   display: block;
   margin-inline-start: auto;
@@ -13,7 +18,7 @@
 }
 
 .btn:hover {
-  background-color: #EEC4C3;
+  background-color: #eec4c3;
   color: white;
 }
 
@@ -37,7 +42,7 @@
   font-weight: 700;
   padding-inline-start: 0.3rem;
 }
-.alert{
+.alert {
   background-color: #ebb6b4;
   color: white;
   border: unset;
@@ -52,7 +57,7 @@ input:focus-visible {
   outline: unset;
 }
 
-.form-check-input:checked[type=radio]{
+.form-check-input:checked[type="radio"] {
   background-color: black;
 }
 

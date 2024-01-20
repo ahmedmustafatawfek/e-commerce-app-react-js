@@ -1,1 +1,75 @@
-.Contactus {}
+.background {
+  height: 45vh;
+  width: 100%;
+  position: relative;
+}
+.hero {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.hero h2 {
+  margin-block-end: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.hero p {
+  width: 70%;
+  margin: auto;
+}
+
+.Pin {
+  position: absolute;
+  width: 4%;
+  height: 3rem;
+  top: 35%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  transform: rotate(-50deg);
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background-color: #eec4c3;
+}
+
+.logoPin {
+  position: absolute;
+  width: 4%;
+  height: 3rem;
+  top: 35%;
+  left: 46%;
+}
+
+.form {
+  background-color: #ececec;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  margin-block: 2rem;
+}
+form input {
+  border-radius: 0.5rem;
+  border: unset;
+}
+form textarea {
+  resize: none;
+  border-radius: 0.5rem;
+  border: unset;
+}
+
+.Questions{
+  margin-top: 40rem;
+  background-color: #ececec;
+}
+
+.question{
+  border-bottom: .1rem solid gray;
+  padding-block: 1rem;
+}
+
+.question p{
+  margin: 0;
+}

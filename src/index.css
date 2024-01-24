@@ -5,7 +5,7 @@
 }
 .btn {
   display: block;
-  margin-inline-start: auto;
+  /* margin-inline-start: auto; */
   width: 25%;
   margin-block: 1rem;
   background-color: black;

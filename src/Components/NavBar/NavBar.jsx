@@ -109,7 +109,7 @@ export default function NavBar() {
                       className={`navbar-nav mb-2 mb-lg-0 ${styles.lastMenu}`}
                     >
                       <li className="nav-item">
-                        <Link className="nav-link text-black" to="Profile">
+                        <Link className="nav-link text-black" to="profile">
                           <img
                             className={styles.icon}
                             src={profile}

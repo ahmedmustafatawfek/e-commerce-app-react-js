@@ -1,0 +1,7 @@
+.hero{
+   margin-block-end: 2rem;
+   border-bottom: 0.1rem solid rgb(197, 197, 197);
+}
+.hero p{
+  font-size: 1rem;
+}

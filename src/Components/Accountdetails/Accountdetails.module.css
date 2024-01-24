@@ -1,0 +1,12 @@
+form input {
+  border-radius: 0.5rem;
+  border: 0.1rem solid #c3c3c3;
+}
+
+form textarea {
+  resize: none;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #c3c3c3;
+}
+
+

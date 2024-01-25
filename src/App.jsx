@@ -16,7 +16,6 @@ import ProtectedSigning from "./Components/ProtectedSigning/ProtectedSigning";
 import Checkout from './Components/Checkout/Checkout';
 import Allorders from './Components/Allorders/Allorders';
 import Contactus from './Components/Contactus/Contactus';
-import Dashboard from './Components/Dashboard/Dashboard';
 import Orders from './Components/Orders/Orders';
 import Addresses from './Components/Addresses/Addresses';
 import Accountdetails from './Components/Accountdetails/Accountdetails';
@@ -43,13 +42,17 @@ let routers = createBrowserRouter([
       { path: "cart/checkout", element: <ProtectedRoutes> <Checkout /> </ProtectedRoutes> },
       { path: "allorders", element: <ProtectedRoutes> <Allorders /> </ProtectedRoutes> },
 
-
-      { path: "register", element: <ProtectedSigning>  <Register /> </ProtectedSigning> },
-      { path: "login", element: <ProtectedSigning> <Login /> </ProtectedSigning> },
-
       { path: "*", element: <NotFound /> },
     ],
   },
+  {
+    path: "/login",
+    element: <ProtectedSigning> <Login /> </ProtectedSigning>
+  },
+  {
+    path: "/register",
+    element: <ProtectedSigning> <Register /> </ProtectedSigning>
+  }
 
 ]);
 

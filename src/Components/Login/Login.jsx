@@ -6,6 +6,7 @@ import axios from "axios";
 import styles from "./Login.module.css";
 import { tokenContext } from "../../context/tokenContext";
 import { jwtDecode } from "jwt-decode";
+import heroImg from "../../images/Elements/login_img.png"
 
 
 // main function
@@ -61,68 +62,83 @@ export default function Login() {
 
   return (
     <>
-      <div className="container my-2">
-        <h2 className="pt-5 mb-3">Login Now</h2>
-        <p className="p">
-          Don't have an account yet?
-          <Link className="link" to="/register">
-            Register
-          </Link>
-        </p>
-        {apiError && <p className="alert alert-danger">{apiError}</p>}
-        <form className="w-75 mx-auto" onSubmit={formik.handleSubmit}>
-          {/* email input */}
-          <div className="form-group mb-2">
-            <label htmlFor="uEmail">Email</label>
-            <input
-              type="email"
-              className="form-control my-2"
-              id="uEmail"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.errors.email && formik.touched.email ? (
-              <div className="alert">{formik.errors.email}</div>
-            ) : (
-              ""
-            )}
-          </div>
 
-          {/* password input */}
-          <div className="form-group mb-2">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              className="form-control my-2"
-              id="password"
-              name="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.errors.password && formik.touched.password ? (
-              <div className="alert">{formik.errors.password}</div>
-            ) : (
-              ""
-            )}
+      <div className="row m-0">
+        {/* section left */}
+        <div className="col-md-6 p-0">
+          <div className={styles.hero}>
+            <img src={heroImg} alt="hero_image" className={styles.heroImg} />
           </div>
+        </div>
 
-          {isLoading ? (
-            <button className="btn">
-              <i className="fa fa-spin fa-spinner"></i>
-            </button>
-          ) : (
-            <button
-              disabled={!(formik.isValid && formik.dirty)}
-              className="btn"
-            >
-              Login
-            </button>
-          )}
-        </form>
+        {/* section right */}
+        <div className="col-md-6 ">
+          <div className={styles.right}>
+            <h2 className="mb-3">Sign in</h2>
+            <p className="mb-4">
+              Don't have an account yet?
+              <Link className="link" to="/register">
+                Sign up
+              </Link>
+            </p>
+
+            {apiError && <p className="alert alert-danger">{apiError}</p>}
+            <form className="w-75" onSubmit={formik.handleSubmit}>
+              {/* email input */}
+              <div className="form-group mb-2">
+                <label htmlFor="uEmail">Email</label>
+                <input
+                  type="email"
+                  className="form-control my-2"
+                  id="uEmail"
+                  name="email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.errors.email && formik.touched.email ? (
+                  <div className="alert">{formik.errors.email}</div>
+                ) : (
+                  ""
+                )}
+              </div>
+
+              {/* password input */}
+              <div className="form-group mb-2">
+                <label htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  className="form-control my-2"
+                  id="password"
+                  name="password"
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.errors.password && formik.touched.password ? (
+                  <div className="alert">{formik.errors.password}</div>
+                ) : (
+                  ""
+                )}
+              </div>
+
+              {isLoading ? (
+                <button className="btn">
+                  <i className="fa fa-spin fa-spinner"></i>
+                </button>
+              ) : (
+                <button
+                  disabled={!(formik.isValid && formik.dirty)}
+                  className="btn"
+                >
+                  Login
+                </button>
+              )}
+            </form>
+          </div>
+        </div>
       </div>
+
     </>
   );
 }

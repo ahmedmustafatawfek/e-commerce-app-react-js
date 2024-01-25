@@ -11,7 +11,7 @@
   background-color: black;
   color: white;
   border: unset;
-  border-radius: 1rem;
+  border-radius: .5rem;
   padding-block: 0.5rem;
   padding-inline: 0.8rem;
   transition: all 0.5s ease-in-out;

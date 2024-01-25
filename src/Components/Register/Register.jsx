@@ -4,6 +4,8 @@ import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
+import heroImg from "../../images/Elements/register_img.png"
+
 
 export default function Register() {
   const [isLoading, setIsLoading] = useState(false);
@@ -57,126 +59,136 @@ export default function Register() {
 
   return (
     <>
-      <div className="container my-2">
-        <h2 className="pt-5 mb-3">Register Now</h2>
-        <p className="p">
-          Aleady have an account?
-          <Link className="link" to="/login">
-            Login
-          </Link>
-        </p>
-        {apiError && <p className="alert alert-danger">{apiError}</p>}
-        <form className="w-75 mx-auto" onSubmit={formik.handleSubmit}>
-          {/* name input */}
-          <div className="form-group mb-2">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              className="form-control my-2"
-              id="name"
-              name="name"
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-
-            {formik.errors.name && formik.touched.name ? (
-              <div className="alert">{formik.errors.name}</div>
-            ) : (
-              ""
-            )}
+      <div className="row m-0">
+        <div className="col-md-6 p-0">
+          <div className={styles.hero}>
+            <img src={heroImg} alt="hero_image" className={styles.heroImg} />
           </div>
+        </div>
+        <div className="col-md-6">
+          <div className={styles.right}>
 
-          {/* email input */}
-          <div className="form-group mb-2">
-            <label htmlFor="uEmail">Email</label>
-            <input
-              type="email"
-              className="form-control my-2"
-              id="uEmail"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.errors.email && formik.touched.email ? (
-              <div className="alert">{formik.errors.email}</div>
-            ) : (
-              ""
-            )}
+            <h2 className="mb-3">Sign up</h2>
+            <p className="mb-4">
+              Aleady have an account?
+              <Link className="link" to="/login">
+                Login
+              </Link>
+            </p>
+            {apiError && <p className="alert alert-danger">{apiError}</p>}
+            <form className="w-75 " onSubmit={formik.handleSubmit}>
+              {/* name input */}
+              <div className="form-group mb-2">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  className="form-control my-2"
+                  id="name"
+                  name="name"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+
+                {formik.errors.name && formik.touched.name ? (
+                  <div className="alert">{formik.errors.name}</div>
+                ) : (
+                  ""
+                )}
+              </div>
+
+              {/* email input */}
+              <div className="form-group mb-2">
+                <label htmlFor="uEmail">Email</label>
+                <input
+                  type="email"
+                  className="form-control my-2"
+                  id="uEmail"
+                  name="email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.errors.email && formik.touched.email ? (
+                  <div className="alert">{formik.errors.email}</div>
+                ) : (
+                  ""
+                )}
+              </div>
+
+              {/* password input */}
+              <div className="form-group mb-2">
+                <label htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  className="form-control my-2"
+                  id="password"
+                  name="password"
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.errors.password && formik.touched.password ? (
+                  <div className="alert">{formik.errors.password}</div>
+                ) : (
+                  ""
+                )}
+              </div>
+
+              {/* rePassword input */}
+              <div className="form-group mb-2">
+                <label htmlFor="rePassword">Re-Password</label>
+                <input
+                  type="password"
+                  className="form-control my-2"
+                  id="rePassword"
+                  name="rePassword"
+                  value={formik.values.rePassword}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+
+                {formik.errors.rePassword && formik.touched.rePassword ? (
+                  <div className="alert">{formik.errors.rePassword}</div>
+                ) : (
+                  ""
+                )}
+              </div>
+
+              {/* Phone input */}
+              <div className="form-group mb-4">
+                <label htmlFor="phone">Phone</label>
+                <input
+                  type="tel"
+                  className="form-control my-2"
+                  id="phone"
+                  name="phone"
+                  value={formik.values.phone}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.errors.phone && formik.touched.phone ? (
+                  <div className="alert">{formik.errors.phone}</div>
+                ) : (
+                  ""
+                )}
+              </div>
+
+              {isLoading ? (
+                <button className="btn">
+                  <i className="fa fa-spin fa-spinner"></i>
+                </button>
+              ) : (
+                <button
+                  disabled={!(formik.isValid && formik.dirty)}
+                  className="btn"
+                >
+                  Register
+                </button>
+              )}
+            </form>
           </div>
-
-          {/* password input */}
-          <div className="form-group mb-2">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              className="form-control my-2"
-              id="password"
-              name="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.errors.password && formik.touched.password ? (
-              <div className="alert">{formik.errors.password}</div>
-            ) : (
-              ""
-            )}
-          </div>
-
-          {/* rePassword input */}
-          <div className="form-group mb-2">
-            <label htmlFor="rePassword">Re-Password</label>
-            <input
-              type="password"
-              className="form-control my-2"
-              id="rePassword"
-              name="rePassword"
-              value={formik.values.rePassword}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-
-            {formik.errors.rePassword && formik.touched.rePassword ? (
-              <div className="alert">{formik.errors.rePassword}</div>
-            ) : (
-              ""
-            )}
-          </div>
-
-          {/* Phone input */}
-          <div className="form-group mb-4">
-            <label htmlFor="phone">Phone</label>
-            <input
-              type="tel"
-              className="form-control my-2"
-              id="phone"
-              name="phone"
-              value={formik.values.phone}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.errors.phone && formik.touched.phone ? (
-              <div className="alert">{formik.errors.phone}</div>
-            ) : (
-              ""
-            )}
-          </div>
-
-          {isLoading ? (
-            <button className="btn">
-              <i className="fa fa-spin fa-spinner"></i>
-            </button>
-          ) : (
-            <button
-              disabled={!(formik.isValid && formik.dirty)}
-              className="btn"
-            >
-              Register
-            </button>
-          )}
-        </form>
+        </div>
       </div>
     </>
   );
